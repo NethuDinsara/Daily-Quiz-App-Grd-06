@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grade 6 Daily English Booster</title>
+  <title>Grade 6 Daily English Practice</title>
   <style>
     :root {
       --primary: #4F46E5;
@@ -21,10 +21,12 @@
 
     /* Header */
     .header { padding-bottom: 12px; border-bottom: 2px solid #F3F4F6; margin-bottom: 15px; }
-    .subject-tag { display: inline-block; background: #EEF2FF; color: var(--primary); padding: 4px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+    .badge-row { display: flex; gap: 6px; margin-bottom: 6px; }
+    .subject-tag { display: inline-block; background: #EEF2FF; color: var(--primary); padding: 4px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .day-tag { display: inline-block; background: #FEF3C7; color: #92400E; padding: 4px 10px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
     .header h1 { font-size: 1.1rem; color: var(--text); font-weight: 700; }
 
-    /* Quiz Area */
+    /* Quiz Cards */
     .quiz-card { background: #FAFAFA; border: 1.5px solid #E5E7EB; border-radius: 14px; padding: 14px; margin-bottom: 12px; }
     .q-number { font-size: 0.7rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 4px; }
     .q-text { font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; line-height: 1.4; }
@@ -51,22 +53,25 @@
 <div class="app-container">
   <!-- Header -->
   <div class="header">
-    <div class="subject-tag" id="subject-tag">Daily Assignment</div>
-    <h1 id="title-text">Grade 6 Daily Practice</h1>
+    <div class="badge-row">
+      <div class="subject-tag" id="subject-tag">Subject</div>
+      <div class="day-tag" id="day-tag">Day 1</div>
+    </div>
+    <h1 id="title-text">Grade 6 Daily Booster</h1>
   </div>
 
-  <!-- Screen 1: Direct Quiz Engine -->
+  <!-- Screen 1: Quiz Engine -->
   <div id="screen-quiz">
     <div id="quiz-container"></div>
     <button class="btn-submit" onclick="submitAnswers()">Submit Answers</button>
   </div>
 
-  <!-- Screen 2: Results & Bilingual Reviews -->
+  <!-- Screen 2: Results & Sinhala Reviews -->
   <div id="screen-results" style="display:none;">
     <div class="results-header">
       <div style="font-size: 0.8rem; color: var(--muted);">Today's Score</div>
       <div class="score-badge" id="score-text">0 / 5</div>
-      <div id="feedback-msg" style="font-size: 0.85rem; font-weight: 600; color: var(--correct);">Great job! Study the notes below:</div>
+      <div id="feedback-msg" style="font-size: 0.85rem; font-weight: 600; color: var(--correct);">Great job! Read the Sinhala notes below:</div>
     </div>
     <div id="review-container"></div>
     <button class="btn-whatsapp" onclick="shareWhatsApp()">📱 Send Results to Tutor via WhatsApp</button>
@@ -74,186 +79,284 @@
 </div>
 
 <script>
-  // Questions grounded in Grade 6 Past Papers & Textbooks
+  // =========================================================================
+  // EASY QUESTION BANK - ADD NEW DAYS OR SUBJECTS HERE ANYTIME!
+  // Send links like: ?s=science&d=1 OR ?s=geography&d=2 OR ?s=health&d=1
+  // =========================================================================
   const questionBank = {
     science: {
-      title: "Science - Terminology Booster",
-      questions: [
-        {
-          q: "1. What is the gas released by green plants during Photosynthesis?",
-          options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
-          ans: "Oxygen",
-          type: "mcq",
-          sinhala: "Photosynthesis (ප්‍රකාශ සංශ්ලේෂණය): ශාක ආහාර නිපදවීමේදී පිටකරන වායුව ඔක්සිජන් (Oxygen) වේ."
-        },
-        {
-          q: "2. Which instrument is used to measure the speed of wind?",
-          options: ["Rain Gauge", "Thermometer", "Anemometer", "Barometer"],
-          ans: "Anemometer",
-          type: "mcq",
-          sinhala: "Anemometer (සුළං වේගමානය): සුළඟේ වේගය මැනීමට ඇනමෝමීටරය භාවිතා කරයි."
-        },
-        {
-          q: "3. Light passes partially through which type of material?",
-          options: ["Transparent", "Translucent", "Opaque", "Reflective"],
-          ans: "Translucent",
-          type: "mcq",
-          sinhala: "Translucent (අර්ධ පාරදෘශ්‍ය): ආලෝකය අර්ධ වශයෙන් පමනක් ගමන් කරන ද්‍රව්‍ය (උදා: ඉටි කොළ)."
-        },
-        {
-          q: "4. What is the main source of energy on Earth?",
-          ans: "Sun",
-          type: "text",
-          sinhala: "Sun (සූර්යයා): පෘථිවියේ ප්‍රධානතම හා මූලික ශක්ති ප්‍රභවය සූර්යයා වේ."
-        },
-        {
-          q: "5. What are green plants called in a food chain?",
-          options: ["Consumers", "Producers", "Carnivores", "Decomposers"],
-          ans: "Producers",
-          type: "mcq",
-          sinhala: "Producers (නිෂ්පාදකයින්): ආහාර ස්වයන්භූතව නිපදවා ගන්නා ශාක වේ."
-        }
-      ]
+      "1": {
+        title: "Science - Living World & Plants (Day 1)",
+        questions: [
+          {
+            q: "1. What is the gas released by green plants during Photosynthesis?",
+            options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
+            ans: "Oxygen",
+            type: "mcq",
+            sinhala: "Photosynthesis (ප්‍රකාශ සංශ්ලේෂණය): ශාක ආහාර නිපදවීමේදී පිටකරන වායුව ඔක්සිජන් (Oxygen) වේ."
+          },
+          {
+            q: "2. Which instrument is used to measure the speed of wind?",
+            options: ["Rain Gauge", "Thermometer", "Anemometer", "Barometer"],
+            ans: "Anemometer",
+            type: "mcq",
+            sinhala: "Anemometer (සුළං වේගමානය): සුළඟේ වේගය මැනීමට ඇනමෝමීටරය භාවිතා කරයි."
+          },
+          {
+            q: "3. Light passes partially through which type of material?",
+            options: ["Transparent", "Translucent", "Opaque", "Reflective"],
+            ans: "Translucent",
+            type: "mcq",
+            sinhala: "Translucent (අර්ධ පාරදෘශ්‍ය): ආලෝකය අර්ධ වශයෙන් පමනක් ගමන් කරන ද්‍රව්‍ය (උදා: ඉටි කොළ)."
+          },
+          {
+            q: "4. What is the primary source of energy on Earth?",
+            ans: "Sun",
+            type: "text",
+            sinhala: "Sun (සූර්යයා): පෘථිවියේ ප්‍රධානතම හා මූලික ශක්ති ප්‍රභවය සූර්යයා වේ."
+          },
+          {
+            q: "5. What are green plants called in a food chain?",
+            options: ["Consumers", "Producers", "Carnivores", "Decomposers"],
+            ans: "Producers",
+            type: "mcq",
+            sinhala: "Producers (නිෂ්පාදකයින්): ආහාර ස්වයන්භූතව නිපදවා ගන්නා ශාක වේ."
+          }
+        ]
+      },
+      "2": {
+        title: "Science - Matter & Energy (Day 2)",
+        questions: [
+          {
+            q: "1. Which state of matter has no definite shape or volume?",
+            options: ["Solid", "Liquid", "Gas", "Metal"],
+            ans: "Gas",
+            type: "mcq",
+            sinhala: "Gas (වායු): වායු අවස්ථාවේ ඇති ද්‍රව්‍ය වලට නිශ්චිත හැඩයක් හෝ පරිමාවක් නොමැත."
+          },
+          {
+            q: "2. Which instrument is used to measure humidity in air?",
+            options: ["Hygrometer", "Thermometer", "Rain gauge", "Anemometer"],
+            ans: "Hygrometer",
+            type: "mcq",
+            sinhala: "Hygrometer (ආර්ද්‍රතාමානය): වායුගෝලයේ ආර්ද්‍රතාවය (තෙතමනය) මැනීමට භාවිතා කරයි."
+          },
+          {
+            q: "3. Name the process of changing a liquid into a gas by heating:",
+            ans: "Evaporation",
+            type: "text",
+            sinhala: "Evaporation (වාෂ්පීකරණය): රත් කිරීමෙන් ද්‍රවයක් වායුවක් බවට පත්වීමේ ක්‍රියාවලියයි."
+          },
+          {
+            q: "4. Two magnetic poles of the same type (North & North) will ______ each other.",
+            options: ["Attract", "Repel", "Destroy", "Rotate"],
+            ans: "Repel",
+            type: "mcq",
+            sinhala: "Repel (විකර්ෂණය): සමාන චුම්භක ධ්‍රැව එකිනෙකට ආසන්න කළ විට විකර්ෂණය වේ."
+          },
+          {
+            q: "5. Which symbol represents a Light Emitting Diode (LED) in a circuit?",
+            options: ["Diode with arrows", "Bulb circle", "Switch line", "Battery cell"],
+            ans: "Diode with arrows",
+            type: "mcq",
+            sinhala: "LED (ආලෝක විමෝචක දියෝඩය): විදුලිය එක් දිශාවකට පමණක් ගමන් කරවන සංකේතයයි."
+          }
+        ]
+      }
     },
     geography: {
-      title: "Geography - Key Concepts",
-      questions: [
-        {
-          q: "1. What is the measuring unit of rainfall?",
-          options: ["Degrees Celsius", "Millimeter (mm)", "Milliliter", "Kilometer"],
-          ans: "Millimeter (mm)",
-          type: "mcq",
-          sinhala: "Millimeter (මිලිමීටර - mm): වර්ෂාපතනය මනිනු ලබන සම්මත ඒකකය මිලිමීටර වේ."
-        },
-        {
-          q: "2. Name the commercial capital city of Sri Lanka:",
-          ans: "Colombo",
-          type: "text",
-          sinhala: "Colombo (කොළඹ): ශ්‍රී ලංකාවේ ප්‍රධාන වාණිජ නගරය කොළඹ වේ."
-        },
-        {
-          q: "3. Which equipment is used to measure atmospheric temperature?",
-          options: ["Barometer", "Rain gauge", "Thermometer", "Wind direction indicator"],
-          ans: "Thermometer",
-          type: "mcq",
-          sinhala: "Thermometer (උෂ්ණත්වමානය): වායුගෝලීය උෂ්ණත්වය මැනීමට උෂ්ණත්වමානය භාවිතා කරයි."
-        },
-        {
-          q: "4. What is the largest ocean in the world?",
-          options: ["Indian Ocean", "Atlantic Ocean", "Pacific Ocean", "Arctic Ocean"],
-          ans: "Pacific Ocean",
-          type: "mcq",
-          sinhala: "Pacific Ocean (ශාන්තිකර සාගරය): ලෝකයේ විශාලතම සාගරය වේ."
-        },
-        {
-          q: "5. Weather is the condition of the atmosphere over a ______ period of time.",
-          options: ["Short", "Long", "Permanent", "Yearly"],
-          ans: "Short",
-          type: "mcq",
-          sinhala: "Weather (කාලගුණය): කෙටි කාලයක් තුළ යම් ස්ථානයක වායුගෝලයේ තත්ත්වයයි."
-        }
-      ]
+      "1": {
+        title: "Geography - Climate & Weather (Day 1)",
+        questions: [
+          {
+            q: "1. What is the standard measuring unit of rainfall?",
+            options: ["Degrees Celsius", "Millimeter (mm)", "Milliliter", "Kilometer"],
+            ans: "Millimeter (mm)",
+            type: "mcq",
+            sinhala: "Millimeter (මිලිමීටර - mm): වර්ෂාපතනය මනිනු ලබන සම්මත ඒකකය මිලිමීටර වේ."
+          },
+          {
+            q: "2. Name the main commercial capital city of Sri Lanka:",
+            ans: "Colombo",
+            type: "text",
+            sinhala: "Colombo (කොළඹ): ශ්‍රී ලංකාවේ ප්‍රධාන වාණිජ නගරය කොළඹ වේ."
+          },
+          {
+            q: "3. Which equipment measures atmospheric temperature?",
+            options: ["Barometer", "Rain gauge", "Thermometer", "Wind vane"],
+            ans: "Thermometer",
+            type: "mcq",
+            sinhala: "Thermometer (උෂ්ණත්වමානය): වායුගෝලීය උෂ්ණත්වය මැනීමට උෂ්ණත්වමානය භාවිතා කරයි."
+          },
+          {
+            q: "4. What is the largest ocean in the world?",
+            options: ["Indian Ocean", "Atlantic Ocean", "Pacific Ocean", "Arctic Ocean"],
+            ans: "Pacific Ocean",
+            type: "mcq",
+            sinhala: "Pacific Ocean (ශාන්තිකර සාගරය): ලෝකයේ විශාලතම සාගරය වේ."
+          },
+          {
+            q: "5. Weather is the condition of atmosphere over a ______ period.",
+            options: ["Short", "Long", "Permanent", "Yearly"],
+            ans: "Short",
+            type: "mcq",
+            sinhala: "Weather (කාලගුණය): කෙටි කාලයක් තුළ යම් ස්ථානයක වායුගෝලයේ පවතින තත්ත්වයයි."
+          }
+        ]
+      },
+      "2": {
+        title: "Geography - Maps & Resources (Day 2)",
+        questions: [
+          {
+            q: "1. What is the largest administrative unit of Sri Lanka?",
+            options: ["District", "Province", "Grama Niladhari Division", "Village"],
+            ans: "Province",
+            type: "mcq",
+            sinhala: "Province (පළාත): ශ්‍රී ලංකාවේ විශාලතම පරිපාලන ඒකකය පළාත වේ (පළාත් 9 කි)."
+          },
+          {
+            q: "2. Name the natural harbor located in eastern Sri Lanka:",
+            ans: "Trincomalee",
+            type: "text",
+            sinhala: "Trincomalee (ත්‍රිකුණාමලය): ශ්‍රී ලංකාවේ පිහිටි ප්‍රධාන ස්වාභාවික වරායයි."
+          },
+          {
+            q: "3. Which direction is opposite to North-West?",
+            options: ["North-East", "South-East", "South-West", "North"],
+            ans: "South-East",
+            type: "mcq",
+            sinhala: "South-East (ගිනිකොන): වයඹ (North-West) දිශාවට සෘජුවම ප්‍රතිවිරුද්ධ දිශාවයි."
+          },
+          {
+            q: "4. Water, air, and sunlight are examples of ______ resources.",
+            options: ["Man-made", "Natural", "Artificial", "Industrial"],
+            ans: "Natural",
+            type: "mcq",
+            sinhala: "Natural resources (ස්වාභාවික සම්පත්): සොබාදහමෙන් ලැබී ඇති පරිසර සම්පත්."
+          },
+          {
+            q: "5. Dumbara region in Sri Lanka is famous for which cottage industry?",
+            options: ["Brassware", "Tile making", "Mats production", "Masks"],
+            ans: "Mats production",
+            type: "mcq",
+            sinhala: "Dumbara Mats (දුම්බර රටා පෑදුම්): දුම්බර ප්‍රදේශය සාම්ප්‍රදායික පන් පැදුරු කර්මාන්තයට ප්‍රසිද්ධය."
+          }
+        ]
+      }
     },
     health: {
-      title: "Health & HPE - Vocabulary",
-      questions: [
-        {
-          q: "1. Controlling emotions belongs to which dimension of health?",
-          options: ["Physical health", "Mental health", "Social health", "Spiritual health"],
-          ans: "Mental health",
-          type: "mcq",
-          sinhala: "Mental health (මානසික සෞඛ්‍යය): හැඟීම් පාලනය සහ මානසික සමබරතාවය මීට අයත් වේ."
-        },
-        {
-          q: "2. Which nutrient group provides energy to our body?",
-          options: ["Proteins", "Carbohydrates", "Vitamins", "Minerals"],
-          ans: "Carbohydrates",
-          type: "mcq",
-          sinhala: "Carbohydrates (කාබෝහයිඩ්‍රේට්): ශරීරයට ශක්තිය සපයන ප්‍රධාන පෝෂකයයි (උදා: බත්)."
-        },
-        {
-          q: "3. Name one sensory organ that connects us to the environment:",
-          ans: "Eye",
-          type: "text",
-          sinhala: "Sensory Organs (සංවේදක අංඟ): ඇස (Eye), කන (Ear), නාසය (Nose), දිව (Tongue), සම (Skin)."
-        },
-        {
-          q: "4. A Grade 6 child should sleep at least how many hours per day?",
-          options: ["4-5 hours", "6-7 hours", "8-10 hours", "12-14 hours"],
-          ans: "8-10 hours",
-          type: "mcq",
-          sinhala: "Rest & Sleep (නිසි නින්ද): ළමයෙකු දිනකට පැය 8-10 අතර කාලයක් නිසි නින්දක් ලැබිය යුතුය."
-        },
-        {
-          q: "5. Standing straight with head erect is an example of correct ______.",
-          options: ["Posture", "Exercise", "Hygiene", "Diet"],
-          ans: "Posture",
-          type: "mcq",
-          sinhala: "Posture (ඉරියව්): නිවැරදි ඉරියව් පවත්වා ගැනීමෙන් කාර්යක්ෂමතාව වැඩිවේ."
-        }
-      ]
+      "1": {
+        title: "Health & HPE - Wellness (Day 1)",
+        questions: [
+          {
+            q: "1. Controlling emotions belongs to which dimension of health?",
+            options: ["Physical health", "Mental health", "Social health", "Spiritual health"],
+            ans: "Mental health",
+            type: "mcq",
+            sinhala: "Mental health (මානසික සෞඛ්‍යය): හැඟීම් පාලනය සහ මානසික සමබරතාවය මීට අයත් වේ."
+          },
+          {
+            q: "2. Which nutrient group provides main energy to our body?",
+            options: ["Proteins", "Carbohydrates", "Vitamins", "Minerals"],
+            ans: "Carbohydrates",
+            type: "mcq",
+            sinhala: "Carbohydrates (කාබෝහයිඩ්‍රේට්): ශරීරයට ශක්තිය සපයන ප්‍රධාන පෝෂකයයි (උදා: බත්)."
+          },
+          {
+            q: "3. Name one sensory organ that connects us to the environment:",
+            ans: "Eye",
+            type: "text",
+            sinhala: "Sensory Organs (සංවේදක අංඟ): ඇස (Eye), කන (Ear), නාසය (Nose), දිව (Tongue), සම (Skin)."
+          },
+          {
+            q: "4. A Grade 6 child should sleep at least how many hours per day?",
+            options: ["4-5 hours", "6-7 hours", "8-10 hours", "12-14 hours"],
+            ans: "8-10 hours",
+            type: "mcq",
+            sinhala: "Rest & Sleep (නිසි නින්ද): ළමයෙකු දිනකට පැය 8-10 අතර කාලයක් නිසි නින්දක් ලැබිය යුතුය."
+          },
+          {
+            q: "5. Standing straight with head erect is an example of correct ______.",
+            options: ["Posture", "Exercise", "Hygiene", "Diet"],
+            ans: "Posture",
+            type: "mcq",
+            sinhala: "Posture (ඉරියව්): නිවැරදි ඉරියව් පවත්වා ගැනීමෙන් ශරීර සෞඛ්‍යය හා කාර්යක්ෂමතාව වැඩිවේ."
+          }
+        ]
+      }
     },
     civic: {
-      title: "Civic Education - School & Society",
-      questions: [
-        {
-          q: "1. Buildings and desks in a public school are public ______.",
-          options: ["Private goods", "Property", "Personal items", "Investments"],
-          ans: "Property",
-          type: "mcq",
-          sinhala: "Public Property (පොදු දේපළ): රජය මගින් මහජන යහපත උදෙසා ලබා දී ඇති ස්ථාන හා උපකරණ."
-        },
-        {
-          q: "2. Protecting school property is a primary ______ of a student.",
-          options: ["Right", "Duty", "Choice", "Option"],
-          ans: "Duty",
-          type: "mcq",
-          sinhala: "Duty (යුතුකම): පාසල් දේපල ආරක්ෂා කිරීම ශිෂ්‍යයාගේ වගකීම හා යුතුකම වේ."
-        },
-        {
-          q: "3. What must you follow when using the road safely?",
-          options: ["Traffic rules", "Fast running", "Game rules", "Sports ethics"],
-          ans: "Traffic rules",
-          type: "mcq",
-          sinhala: "Traffic rules (මාර්ග නීති): පාරේ ගමන් කිරීමේදී තමාගේත් අන්අයගේත් ආරක්ෂාව උදෙසා පිළිපැදිය යුතුය."
-        },
-        {
-          q: "4. Receiving free education and textbooks is an example of a student's ______.",
-          options: ["Rights", "Duties", "Rules", "Penalties"],
-          ans: "Rights",
-          type: "mcq",
-          sinhala: "Rights (අයිතිවාසිකම්): නොමිලේ අධ්‍යාපනය හා පෙළපොත් ලැබීම ශිෂ්‍යයාගේ අයිතිවාසිකමකි."
-        },
-        {
-          q: "5. Write one word describing polite behavior towards teachers:",
-          ans: "Respect",
-          type: "text",
-          sinhala: "Respect (ගෞරවය): ගුරුභවතුන්ට ගෞරව කිරීම සහ කීකරුවීම හොඳ ළමයෙකුගේ ලක්ෂණයකි."
-        }
-      ]
+      "1": {
+        title: "Civic Education - School & Society (Day 1)",
+        questions: [
+          {
+            q: "1. Buildings and desks in a public school are public ______.",
+            options: ["Private goods", "Property", "Personal items", "Investments"],
+            ans: "Property",
+            type: "mcq",
+            sinhala: "Public Property (පොදු දේපළ): රජය මගින් මහජන යහපත උදෙසා ලබා දී ඇති ස්ථාන හා උපකරණ."
+          },
+          {
+            q: "2. Protecting school property is a primary ______ of a student.",
+            options: ["Right", "Duty", "Choice", "Option"],
+            ans: "Duty",
+            type: "mcq",
+            sinhala: "Duty (යුතුකම): පාසල් දේපල ආරක්ෂා කිරීම ශිෂ්‍යයාගේ වගකීම හා යුතුකම වේ."
+          },
+          {
+            q: "3. What must you follow when using the road safely?",
+            options: ["Traffic rules", "Fast running", "Game rules", "Sports ethics"],
+            ans: "Traffic rules",
+            type: "mcq",
+            sinhala: "Traffic rules (මාර්ග නීති): පාරේ ගමන් කිරීමේදී තමාගේත් අන්අයගේත් ආරක්ෂාව උදෙසා පිළිපැදිය යුතුය."
+          },
+          {
+            q: "4. Receiving free education and textbooks is an example of a student's ______.",
+            options: ["Rights", "Duties", "Rules", "Penalties"],
+            ans: "Rights",
+            type: "mcq",
+            sinhala: "Rights (අයිතිවාසිකම්): නොමිලේ අධ්‍යාපනය හා පෙළපොත් ලැබීම ශිෂ්‍යයාගේ අයිතිවාසිකමකි."
+          },
+          {
+            q: "5. Write one word describing polite behavior towards teachers:",
+            ans: "Respect",
+            type: "text",
+            sinhala: "Respect (ගෞරවය): ගුරුභවතුන්ට ගෞරව කිරීම සහ කීකරුවීම හොඳ ළමයෙකුගේ ලක්ෂණයකි."
+          }
+        ]
+      }
     }
   };
 
   let currentSubject = 'science';
+  let currentDay = '1';
   let userAnswers = {};
   let currentQuestions = [];
 
   window.addEventListener('DOMContentLoaded', function() {
-    let selected = 'science';
+    let selectedSub = 'science';
+    let selectedDay = '1';
+
     try {
       let params = new URLSearchParams(window.location.search);
-      selected = params.get('s') || params.get('subject') || 'science';
+      selectedSub = params.get('s') || params.get('subject') || 'science';
+      selectedDay = params.get('d') || params.get('day') || '1';
     } catch(e) {
-      selected = 'science';
+      selectedSub = 'science';
+      selectedDay = '1';
     }
     
-    currentSubject = questionBank[selected] ? selected : 'science';
-    let data = questionBank[currentSubject];
+    currentSubject = questionBank[selectedSub] ? selectedSub : 'science';
+    let subData = questionBank[currentSubject];
+    currentDay = subData[selectedDay] ? selectedDay : Object.keys(subData);
+
+    let quizData = subData[currentDay];
 
     document.getElementById('subject-tag').innerText = currentSubject.toUpperCase();
-    document.getElementById('title-text').innerText = data.title;
+    document.getElementById('day-tag').innerText = 'DAY ' + currentDay;
+    document.getElementById('title-text').innerText = quizData.title;
     
-    currentQuestions = data.questions;
+    currentQuestions = quizData.questions;
     renderQuiz();
   });
 
@@ -320,7 +423,7 @@
 
   function shareWhatsApp() {
     let score = document.getElementById('score-text').innerText;
-    let text = "Hello Teacher! I completed today's Grade 6 " + currentSubject.toUpperCase() + " quiz. My score is " + score + "!";
+    let text = "Hello Teacher! I completed today's Grade 6 " + currentSubject.toUpperCase() + " (Day " + currentDay + ") quiz. My score is " + score + "!";
     let waUrl = "whatsapp://send?text=" + encodeURIComponent(text);
     window.open(waUrl, '_blank');
   }

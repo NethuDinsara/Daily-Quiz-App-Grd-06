@@ -18,7 +18,7 @@
       --sinhala-text: #92400E;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; -webkit-tap-highlight-color: transparent; }
     body { background-color: var(--bg); color: var(--text); padding: 14px; display: flex; justify-content: center; }
     .app-container { width: 100%; max-width: 520px; background: var(--card); border-radius: 24px; box-shadow: 0 12px 30px rgba(0,0,0,0.06); padding: 22px; min-height: 90vh; display: flex; flex-direction: column; justify-content: space-between; }
 
@@ -68,7 +68,7 @@
 
   <div id="screen-quiz">
     <div id="quiz-container"></div>
-    <button class="btn-submit" onclick="submitAnswers()">Submit Answers & View Review</button>
+    <button class="btn-submit" id="submit-btn" type="button">Submit Answers & View Review</button>
   </div>
 
   <div id="screen-results" style="display:none;">
@@ -78,7 +78,7 @@
       <div id="target-feedback"></div>
     </div>
     <div id="review-container"></div>
-    <button class="btn-whatsapp" onclick="shareWhatsAppDirect()">
+    <button class="btn-whatsapp" id="whatsapp-btn" type="button">
       <span>📲</span> Send Detailed Report to Tutor via WhatsApp
     </button>
   </div>
@@ -227,7 +227,7 @@
   var userAnswers = {};
   var currentQuestions = [];
 
-  window.addEventListener('DOMContentLoaded', function() {
+  function initApp() {
     var params = parseQueryParams();
     var rawSub = (params.subject || 'science').toLowerCase().trim();
     var rawDay = (params.day || '1').trim();
@@ -248,60 +248,117 @@
     
     currentQuestions = quizData.questions;
     renderQuiz();
-  });
 
-  function renderQuiz() {
-    var html = '';
-    currentQuestions.forEach(function(q, idx) {
-      html += '<div class="quiz-card">' +
-                '<div class="q-number">Question ' + (idx + 1) + ' of ' + currentQuestions.length + '</div>' +
-                '<div class="q-text">' + q.q + '</div>';
+    document.getElementById('submit-btn').addEventListener('click', submitAnswers);
+    document.getElementById('whatsapp-btn').addEventListener('click', shareWhatsAppDirect);
 
-      if (q.type === 'mcq') {
-        html += '<div class="options-group" data-qidx="' + idx + '">';
-        q.options.forEach(function(opt) {
-          html += '<button type="button" class="option-btn" onclick="selectOption(this, ' + idx + ', ' + JSON.stringify(opt) + ')">' + opt + '</button>';
-        });
-        html += '</div>';
-      } else {
-        html += '<input type="text" class="text-input" placeholder="Type answer in English..." oninput="recordText(' + idx + ', this.value)">';
-      }
+    // Event delegation: intercepts all clicks on options reliably
+    var quizContainer = document.getElementById('quiz-container');
+    quizContainer.addEventListener('click', function(e) {
+      var btn = e.target.closest('.option-btn');
+      if (!btn) return;
+      var qIdx = parseInt(btn.getAttribute('data-qidx'), 10);
+      var val = btn.getAttribute('data-val');
+      
+      userAnswers[qIdx] = val;
 
-      html += '</div>';
+      var group = btn.closest('.options-group');
+      var allBtns = group.querySelectorAll('.option-btn');
+      allBtns.forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
     });
 
-    document.getElementById('quiz-container').innerHTML = html;
+    // Intercepts short-answer typing
+    quizContainer.addEventListener('input', function(e) {
+      if (e.target.classList.contains('text-input')) {
+        var qIdx = parseInt(e.target.getAttribute('data-qidx'), 10);
+        userAnswers[qIdx] = e.target.value.trim();
+      }
+    });
   }
 
-  function selectOption(btnElement, qIdx, value) {
-    userAnswers[qIdx] = value;
-    var parent = btnElement.parentElement;
-    var allBtns = parent.querySelectorAll('.option-btn');
-    allBtns.forEach(function(b) { b.classList.remove('selected'); });
-    btnElement.classList.add('selected');
-  }
+  function renderQuiz() {
+    var container = document.getElementById('quiz-container');
+    container.innerHTML = '';
 
-  function recordText(qIdx, val) {
-    userAnswers[qIdx] = val.trim();
+    currentQuestions.forEach(function(q, idx) {
+      var card = document.createElement('div');
+      card.className = 'quiz-card';
+
+      var qNum = document.createElement('div');
+      qNum.className = 'q-number';
+      qNum.textContent = 'Question ' + (idx + 1) + ' of ' + currentQuestions.length;
+      card.appendChild(qNum);
+
+      var qText = document.createElement('div');
+      qText.className = 'q-text';
+      qText.textContent = q.q;
+      card.appendChild(qText);
+
+      if (q.type === 'mcq') {
+        var group = document.createElement('div');
+        group.className = 'options-group';
+        q.options.forEach(function(opt) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'option-btn';
+          btn.setAttribute('data-qidx', idx);
+          btn.setAttribute('data-val', opt);
+          btn.textContent = opt;
+          group.appendChild(btn);
+        });
+        card.appendChild(group);
+      } else {
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'text-input';
+        input.setAttribute('data-qidx', idx);
+        input.placeholder = 'Type answer in English...';
+        card.appendChild(input);
+      }
+
+      container.appendChild(card);
+    });
   }
 
   function submitAnswers() {
     var score = 0;
-    var reviewHtml = '';
+    var reviewContainer = document.getElementById('review-container');
+    reviewContainer.innerHTML = '';
 
     currentQuestions.forEach(function(q, idx) {
       var uAns = userAnswers[idx] || 'Not answered';
       var isCorrect = uAns.toString().trim().toLowerCase() === q.ans.toString().trim().toLowerCase();
       if (isCorrect) score++;
 
-      reviewHtml += '<div class="review-card ' + (isCorrect ? 'correct' : 'incorrect') + '">' +
-        '<div style="font-size:0.75rem; font-weight:800; color:' + (isCorrect ? 'var(--correct)' : 'var(--incorrect)') + '">' +
-          (isCorrect ? '✓ Correct' : '✗ Needs Practice') +
-        '</div>' +
-        '<div style="font-weight:600; font-size:0.88rem; margin: 4px 0;">' + q.q + '</div>' +
-        '<div style="font-size:0.84rem;">Your Answer: <b>' + uAns + '</b> | Correct Answer: <b style="color:var(--primary);">' + q.ans + '</b></div>' +
-        '<div class="sinhala-review">💡 <b>Review Note:</b> ' + q.sinhala + '</div>' +
-      '</div>';
+      var card = document.createElement('div');
+      card.className = 'review-card ' + (isCorrect ? 'correct' : 'incorrect');
+
+      var status = document.createElement('div');
+      status.style.fontSize = '0.75rem';
+      status.style.fontWeight = '800';
+      status.style.color = isCorrect ? 'var(--correct)' : 'var(--incorrect)';
+      status.textContent = isCorrect ? '✓ Correct' : '✗ Needs Practice';
+      card.appendChild(status);
+
+      var text = document.createElement('div');
+      text.style.fontWeight = '600';
+      text.style.fontSize = '0.88rem';
+      text.style.margin = '4px 0';
+      text.textContent = q.q;
+      card.appendChild(text);
+
+      var ansDetail = document.createElement('div');
+      ansDetail.style.fontSize = '0.84rem';
+      ansDetail.innerHTML = 'Your Answer: <b>' + uAns + '</b> | Correct Answer: <b style="color:var(--primary);">' + q.ans + '</b>';
+      card.appendChild(ansDetail);
+
+      var sinhalaBox = document.createElement('div');
+      sinhalaBox.className = 'sinhala-review';
+      sinhalaBox.innerHTML = '💡 <b>Review Note:</b> ' + q.sinhala;
+      card.appendChild(sinhalaBox);
+
+      reviewContainer.appendChild(card);
     });
 
     var percentage = Math.round((score / currentQuestions.length) * 100);
@@ -316,7 +373,6 @@
       feedbackEl.innerText = '📖 You scored below 65%. Please read all review notes below carefully!';
     }
 
-    document.getElementById('review-container').innerHTML = reviewHtml;
     document.getElementById('screen-quiz').style.display = 'none';
     document.getElementById('screen-results').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -352,6 +408,12 @@
 
     var waUrl = "https://api.whatsapp.com/send?phone=" + TARGET_PHONE + "&text=" + encodeURIComponent(text);
     window.location.href = waUrl;
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+  } else {
+    initApp();
   }
 </script>
 </body>

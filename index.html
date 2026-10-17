@@ -34,10 +34,10 @@
     .q-number { font-size: 0.72rem; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 4px; }
     .q-text { font-weight: 600; font-size: 0.94rem; margin-bottom: 12px; line-height: 1.45; }
     
-    .option-btn { width: 100%; text-align: left; background: #FFFFFF; border: 1.5px solid #CBD5E1; padding: 11px 14px; border-radius: 12px; margin-bottom: 7px; font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: all 0.15s ease; }
+    .option-btn { width: 100%; text-align: left; background: #FFFFFF; border: 1.5px solid #CBD5E1; padding: 12px 14px; border-radius: 12px; margin-bottom: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.15s ease; outline: none; }
     .option-btn:hover { background: #F1F5F9; }
-    .option-btn.selected { border-color: var(--primary); background: var(--primary-light); color: var(--primary); font-weight: 700; }
-    .text-input { width: 100%; padding: 11px 14px; border: 1.5px solid #CBD5E1; border-radius: 12px; font-size: 0.88rem; outline: none; }
+    .option-btn.selected { border-color: var(--primary) !important; background: var(--primary-light) !important; color: var(--primary) !important; font-weight: 700 !important; }
+    .text-input { width: 100%; padding: 12px 14px; border: 1.5px solid #CBD5E1; border-radius: 12px; font-size: 0.9rem; outline: none; }
     .text-input:focus { border-color: var(--primary); }
 
     .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 14px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
@@ -92,26 +92,26 @@
       "1": {
         title: "Science: Living World, Plants & Energy (Day 1)",
         questions: [
-          { q: "1. What gas is released by green plants during photosynthesis?", options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"], ans: "Oxygen", type: "mcq", sinhala: "Green plants photosynthesis කරනකොට release කරන gas එක Oxygen වේ." },
-          { q: "2. Which of the following is an autotrophic organism?", options: ["Deer", "Lion", "Mango tree", "Mushroom"], ans: "Mango tree", type: "mcq", sinhala: "Autotrophic organisms කියන්නේ තමන්ගේම food නිපදවා ගන්නා green plants වලටයි (Mango tree)." },
-          { q: "3. What apparatus is used to observe microscopic organisms in water?", options: ["Telescope", "Compound microscope", "Rain gauge", "Magnifying glass"], ans: "Compound microscope", type: "mcq", sinhala: "Microscopic organisms observe කරන්න use කරන්නේ Compound microscope එකයි." },
-          { q: "4. A plant that shows sleeping movements when touched is:", options: ["Jak", "Mimosa", "Coconut", "Mango"], ans: "Mimosa", type: "mcq", sinhala: "Touch කරද්දී sleeping movements පෙන්නුම් කරන්නේ Mimosa plant එකයි." },
-          { q: "5. What is the process of matured living beings producing new offspring of their own kind?", options: ["Respiration", "Reproduction", "Nutrition", "Locomotion"], ans: "Reproduction", type: "mcq", sinhala: "New members බිහිකරන process එකට Reproduction කියනු ලැබේ." },
-          { q: "6. Animals that feed only on plants and plant parts are called:", options: ["Carnivores", "Herbivores", "Omnivores", "Autotrophs"], ans: "Herbivores", type: "mcq", sinhala: "Plants පමණක් food එක විදිහට ගන්නා animalsලා Herbivores ලෙස හඳුන්වයි." },
-          { q: "7. Which marine organism is stationary (does not show locomotion) but shows movements?", options: ["Fish", "Sea anemone", "Crab", "Dolphin"], ans: "Sea anemone", type: "mcq", sinhala: "Sea anemone locomotion පෙන්වන්නේ නැත, movements පමණක් පෙන්වයි." },
-          { q: "8. What is the primary and ultimate natural source of energy on Earth?", options: ["Fossil fuel", "Wind", "Sun", "Biomass"], ans: "Sun", type: "mcq", sinhala: "Earth එකේ main natural energy source එක Sun වේ." },
-          { q: "9. Which of the following is classified as biomass fuel?", options: ["Diesel", "Firewood", "Kerosene", "Coal"], ans: "Firewood", type: "mcq", sinhala: "Firewood යනු plant parts වලින් ලබාගන්නා Biomass fuel එකකි." },
-          { q: "10. In a food chain, what role is played by green plants?", options: ["Primary consumer", "Secondary consumer", "Producer", "Decomposer"], ans: "Producer", type: "mcq", sinhala: "Food chain එකක food synthesize කරන මුල් link එක Producer වේ." },
-          { q: "11. If the number of leopards decreases in a forest, the deer population will:", options: ["Decrease", "Increase", "Disappear", "Remain unchanged"], ans: "Increase", type: "mcq", sinhala: "Carnivores ලා අඩුවූ විට herbivores ලාගේ population එක Increase වේ." },
-          { q: "12. What state of matter has a definite volume but NO definite shape?", options: ["Solid", "Liquid", "Gas", "Vapour"], ans: "Liquid", type: "mcq", sinhala: "Liquid state එකට definite volume එකක් තිබුණත් definite shape එකක් නැත." },
-          { q: "13. What property describes a metal's ability to be drawn into thin wires?", options: ["Malleability", "Brittleness", "Ductility", "Hardness"], ans: "Ductility", type: "mcq", sinhala: "Metals තුනී wires බවට අදින්න පුළුවන් property එක Ductility වේ." },
-          { q: "14. Tendency of a solid to break into pieces under a small force is called:", options: ["Elasticity", "Brittleness", "Texture", "Hardness"], ans: "Brittleness", type: "mcq", sinhala: "Force එකක් දැමූ විට පහසුවෙන් break වෙන property එක Brittleness වේ." },
-          { q: "15. What instrument is used to measure rainfall over a 24-hour period?", options: ["Thermometer", "Barometer", "Rain gauge", "Anemometer"], ans: "Rain gauge", type: "mcq", sinhala: "Rainfall measure කරන්න use කරන්නේ Rain gauge එකයි." },
-          { q: "16. Which electronic component allows electric current to flow in one direction only?", options: ["Resistor", "Diode", "Switch", "Cell"], ans: "Diode", type: "mcq", sinhala: "Current එක one direction එකකට පමණක් flow කරන්න දෙන්නේ Diode එකයි." },
-          { q: "17. Name the gas required by green plants to carry out photosynthesis:", ans: "Carbon dioxide", type: "text", sinhala: "Photosynthesis සඳහා green plants ගන්නා gas එක Carbon dioxide වේ." },
-          { q: "18. What laboratory instrument is used to detect small electric currents?", ans: "Galvanometer", type: "text", sinhala: "Small current එකක් detect කරන්න use කරන instrument එක Galvanometer එකයි." },
-          { q: "19. What scientific tool categorizes organisms based on presence or absence of features?", ans: "Dichotomous key", type: "text", sinhala: "Characteristics වල presence හෝ absence අනුව classify කරන්නේ Dichotomous key එකෙනි." },
-          { q: "20. Normal human body temperature in degrees Celsius is:", ans: "37", type: "text", sinhala: "Normal human body temperature එක 37 degrees Celsius වේ." }
+          { q: "1. What gas is released by green plants during photosynthesis?", options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"], ans: "Oxygen", type: "mcq", sinhala: "Photosynthesis (ප්‍රකාශ සංශ්ලේෂණය) process එකේදී green plants release කරන්නේ Oxygen (ඔක්සිජන්) gas එකයි[cite: 360, 529]." },
+          { q: "2. Which of the following is an autotrophic organism?", options: ["Deer", "Lion", "Mango tree", "Mushroom"], ans: "Mango tree", type: "mcq", sinhala: "Autotrophic (ස්වයංපෝෂී) organisms කියන්නේ තමන්ගේම food සාදන green plants වලටයි (Mango tree)[cite: 360, 367]." },
+          { q: "3. What apparatus is used to observe microscopic organisms in water?", options: ["Telescope", "Compound microscope", "Rain gauge", "Magnifying glass"], ans: "Compound microscope", type: "mcq", sinhala: "Micro-organisms (ක්ෂුද්‍ර ජීවීන්) observe කරන්න use කරන laboratory apparatus එක Compound microscope (සංයුක්ත අන්වීක්ෂය) වේ[cite: 357, 371]." },
+          { q: "4. A plant that shows sleeping movements when touched is:", options: ["Jak", "Mimosa", "Coconut", "Mango"], ans: "Mimosa", type: "mcq", sinhala: "Touch කළ විට sleeping movements (නිදි චලන) දක්වන plant එක Mimosa (නිදිකුම්බා) වේ[cite: 362]." },
+          { q: "5. What is the process of matured living beings producing new offspring of their own kind?", options: ["Respiration", "Reproduction", "Nutrition", "Locomotion"], ans: "Reproduction", type: "mcq", sinhala: "New members බිහිකරන process එකට Reproduction (ප්‍රජනනය) කියනු ලැබේ[cite: 364, 372]." },
+          { q: "6. Animals that feed only on plants and plant parts are called:", options: ["Carnivores", "Herbivores", "Omnivores", "Autotrophs"], ans: "Herbivores", type: "mcq", sinhala: "Plants පමණක් food එක විදිහට ගන්නා animalsලා Herbivores (ශාකභක්ෂකයින්) වේ[cite: 503, 509]." },
+          { q: "7. Which marine organism is stationary (does not show locomotion) but shows movements?", options: ["Fish", "Sea anemone", "Crab", "Dolphin"], ans: "Sea anemone", type: "mcq", sinhala: "Sea anemone (මුහුදු ඇනමනී) locomotion (සංචරණය) පෙන්වන්නේ නැත, movements (චලන) පමණක් දක්වයි[cite: 362]." },
+          { q: "8. What is the primary and ultimate natural source of energy on Earth?", options: ["Fossil fuel", "Wind", "Sun", "Biomass"], ans: "Sun", type: "mcq", sinhala: "Earth එකේ main natural energy source (ශක්ති ප්‍රභවය) Sun (සූර්යයා) වේ[cite: 405, 417, 529]." },
+          { q: "9. Which of the following is classified as biomass fuel?", options: ["Diesel", "Firewood", "Kerosene", "Coal"], ans: "Firewood", type: "mcq", sinhala: "Firewood (දර) යනු plant parts වලින් direct ලබාගන්නා Biomass (ජෛව ස්කන්ධ) fuel එකකි[cite: 406]." },
+          { q: "10. In a food chain, what role is played by green plants?", options: ["Primary consumer", "Secondary consumer", "Producer", "Decomposer"], ans: "Producer", type: "mcq", sinhala: "Food chain එකක solar energy store කරමින් food synthesize කරන first link එක Producer (නිෂ්පාදකයා) වේ[cite: 507, 509]." },
+          { q: "11. If the number of leopards decreases in a forest, the deer population will:", options: ["Decrease", "Increase", "Disappear", "Remain unchanged"], ans: "Increase", type: "mcq", sinhala: "Carnivores (මාංශභක්ෂකයින්) අඩු වූ විට herbivores (මුවන්) population එක Increase (වැඩිවීම) වේ[cite: 508, 530]." },
+          { q: "12. What state of matter has a definite volume but NO definite shape?", options: ["Solid", "Liquid", "Gas", "Vapour"], ans: "Liquid", type: "mcq", sinhala: "Liquid (ද්‍රව) state එකට definite volume (පරිමාවක්) තිබුණද definite shape (හැඩයක්) නොමැත[cite: 378, 384]." },
+          { q: "13. What property describes a metal's ability to be drawn into thin wires?", options: ["Malleability", "Brittleness", "Ductility", "Hardness"], ans: "Ductility", type: "mcq", sinhala: "Metals තුනී wires (කම්බි) බවට stretch කිරීමට හැකි property එක Ductility (තන්‍යතාව) වේ[cite: 382, 386]." },
+          { q: "14. Tendency of a solid to break into pieces under a small force is called:", options: ["Elasticity", "Brittleness", "Texture", "Hardness"], ans: "Brittleness", type: "mcq", sinhala: "Force එකක් දැමූ විට පහසුවෙන් break වෙන property එක Brittleness (භංගුරතාව) වේ[cite: 382, 529]." },
+          { q: "15. What instrument is used to measure rainfall over a 24-hour period?", options: ["Thermometer", "Barometer", "Rain gauge", "Anemometer"], ans: "Rain gauge", type: "mcq", sinhala: "Rainfall (වර්ෂාපතනය) millimeters වලින් measure කරන්නේ Rain gauge (වර්ෂාමානය) මගිනි[cite: 516, 527, 530]." },
+          { q: "16. Which electronic component allows electric current to flow in one direction only?", options: ["Resistor", "Diode", "Switch", "Cell"], ans: "Diode", type: "mcq", sinhala: "Current එක one direction එකකට පමණක් flow වීමට ඉඩදෙන්නේ Diode (දියෝඩය) මගිනි[cite: 475, 483]." },
+          { q: "17. Name the gas required by green plants to carry out photosynthesis:", ans: "Carbon dioxide", type: "text", sinhala: "Photosynthesis සඳහා green plants absorb කරන gas එක Carbon dioxide (කාබන්ඩයොක්සයිඩ්) වේ[cite: 360, 507]." },
+          { q: "18. What laboratory instrument is used to detect small electric currents?", ans: "Galvanometer", type: "text", sinhala: "Very small current එකක් detect කිරීමට use කරන්නේ Galvanometer (ගැල්වනෝමීටරය) වේ[cite: 464, 471, 531]." },
+          { q: "19. What scientific tool categorizes organisms based on presence or absence of features?", ans: "Dichotomous key", type: "text", sinhala: "Characteristics වල presence හෝ absence මත organisms categorize කරන්නේ Dichotomous key (දෙබෙදුම් සූචිය) මගිනි[cite: 368, 372, 529]." },
+          { q: "20. Normal human body temperature in degrees Celsius is:", ans: "37", type: "text", sinhala: "Normal human body temperature (සාමාන්‍ය දේහ උෂ්ණත්වය) 37 degrees Celsius වේ[cite: 486, 530]." }
         ]
       }
     },
@@ -119,26 +119,26 @@
       "1": {
         title: "Geography: Sri Lanka, Admin Units & Environment (Day 1)",
         questions: [
-          { q: "1. What is the smallest administrative unit in Sri Lanka?", options: ["District", "Province", "Grama Niladhari Division", "Divisional Secretariat"], ans: "Grama Niladhari Division", type: "mcq", sinhala: "Sri Lanka වල smallest administrative unit එක Grama Niladhari Division වේ." },
-          { q: "2. How many administrative districts are there in Sri Lanka?", options: ["9", "25", "18", "12"], ans: "25", type: "mcq", sinhala: "Sri Lanka වල Provinces 9 ක් සහ Administrative Districts 25 ක් ඇත." },
-          { q: "3. The narrow strip of sea separating Sri Lanka from India is called:", options: ["Bay of Bengal", "Palk Strait", "Arabian Sea", "Mannar Strait"], ans: "Palk Strait", type: "mcq", sinhala: "Sri Lanka සහ India වෙන් කරන narrow sea strip එක Palk Strait වේ." },
-          { q: "4. Which ocean lies to the west of Sri Lanka?", options: ["Pacific Ocean", "Arabian Sea", "Bay of Bengal", "Arctic Ocean"], ans: "Arabian Sea", type: "mcq", sinhala: "Sri Lanka වල West direction එකේ තියෙන්නේ Arabian Sea එකයි." },
-          { q: "5. What is the main administrative capital of Sri Lanka?", options: ["Colombo", "Kandy", "Sri Jayewardenepura Kotte", "Galle"], ans: "Sri Jayewardenepura Kotte", type: "mcq", sinhala: "Sri Lanka වල main administrative capital city එක Sri Jayewardenepura Kotte වේ." },
-          { q: "6. When facing the morning rising sun with arms stretched, your right hand points to:", options: ["North", "South", "East", "West"], ans: "South", type: "mcq", sinhala: "Rising sun දෙසට face කළ විට right hand එක South direction එක point කරයි." },
-          { q: "7. Which natural harbour in Eastern Sri Lanka historically linked East and West naval routes?", options: ["Galle", "Trincomalee", "Colombo", "Hambantota"], ans: "Trincomalee", type: "mcq", sinhala: "Eastern Sri Lanka වල පිහිටි natural sea port එක Trincomalee වේ." },
-          { q: "8. Dumbara area in Central Province is famous for which traditional craft?", options: ["Brassware", "Mask making", "Dumbara mats", "Cane crafts"], ans: "Dumbara mats", type: "mcq", sinhala: "Dumbara area එක traditional Dumbara mats වලට famous වේ." },
-          { q: "9. Pilimathalawa in Kandy district is renowned for:", options: ["Brassware", "Masks", "Tiles", "Textiles"], ans: "Brassware", type: "mcq", sinhala: "Pilimathalawa area එක traditional Brassware industry එකට famous වේ." },
-          { q: "10. What is the atmospheric condition prevailing for a short period in an area called?", options: ["Climate", "Weather", "Precipitation", "Monsoon"], ans: "Weather", type: "mcq", sinhala: "Short period එකක් තුළ පවතින atmospheric condition එකට Weather කියනු ලැබේ." },
-          { q: "11. Which instrument is used to determine wind direction?", options: ["Anemometer", "Wind vane", "Hygrometer", "Thermometer"], ans: "Wind vane", type: "mcq", sinhala: "Wind direction එක measure කරන්න use කරන්නේ Wind vane එකයි." },
-          { q: "12. What bird helps farmers by destroying crop-damaging snails?", options: ["Crow", "Crow-pheasant", "Parrot", "Bat"], ans: "Crow-pheasant", type: "mcq", sinhala: "Crops වලට හානි කරන snails ලා destroy කරන්නේ Crow-pheasant වේ." },
-          { q: "13. Which of the following is a non-harmful, renewable source of energy?", options: ["Coal", "Petroleum", "Solar cells", "Diesel"], ans: "Solar cells", type: "mcq", sinhala: "Environment එකට harm නොවන alternative energy source එකක් ලෙස Solar cells හඳුන්වයි." },
-          { q: "14. The Southern Expressway is designated as:", options: ["E01", "A01", "B02", "E04"], ans: "E01", type: "mcq", sinhala: "Southern Expressway එක designate කර ඇත්තේ E01 නමිනි." },
-          { q: "15. Which region in Sri Lanka is famous for growing grapes, onions, and tobacco?", options: ["Nuwara Eliya", "Jaffna", "Hambantota", "Ratnapura"], ans: "Jaffna", type: "mcq", sinhala: "Grapes, onions සහ tobacco වගාවට famous area එක Jaffna වේ." },
-          { q: "16. What is the largest island in the world?", options: ["Madagascar", "Sicily", "Greenland", "Taiwan"], ans: "Greenland", type: "mcq", sinhala: "World එකේ largest island එක Greenland වේ." },
-          { q: "17. Name the commercial capital of Sri Lanka:", ans: "Colombo", type: "text", sinhala: "Sri Lanka වල commercial capital එක Colombo වේ." },
-          { q: "18. Name a migratory bird arriving in Sri Lanka during the winter season:", ans: "Indian Pitta", type: "text", sinhala: "Winter season එකේ ලංකාවට එන Migratory bird කෙනෙක් තමයි Indian Pitta කියන්නේ." },
-          { q: "19. The latitude line located 23.5 degrees North of the Equator is called:", ans: "Tropic of Cancer", type: "text", sinhala: "Equator එකට 23.5 degrees North වලින් පිහිටි line එක Tropic of Cancer වේ." },
-          { q: "20. The speed of wind is measured in which metric unit?", ans: "Kilometres per hour", type: "text", sinhala: "Speed of wind measure කරන standard unit එක Kilometres per hour වේ." }
+          { q: "1. What is the smallest administrative unit in Sri Lanka?", options: ["District", "Province", "Grama Niladhari Division", "Divisional Secretariat"], ans: "Grama Niladhari Division", type: "mcq", sinhala: "Sri Lanka වල smallest administrative unit (කුඩාම පරිපාලන ඒකකය) Grama Niladhari Division වේ[cite: 50, 115, 534]." },
+          { q: "2. How many administrative districts are there in Sri Lanka?", options: ["9", "25", "18", "12"], ans: "25", type: "mcq", sinhala: "Sri Lanka වල administrative Provinces 9ක් සහ Districts (දිස්ත්‍රික්ක) 25ක් ඇත[cite: 51, 52]." },
+          { q: "3. The narrow strip of sea separating Sri Lanka from India is called:", options: ["Bay of Bengal", "Palk Strait", "Arabian Sea", "Mannar Strait"], ans: "Palk Strait", type: "mcq", sinhala: "Sri Lanka සහ India වෙන් කරන 32 km narrow sea strip එක Palk Strait (පෝක් සමුද්‍ර සන්ධිය) වේ[cite: 170, 544]." },
+          { q: "4. Which ocean lies to the west of Sri Lanka?", options: ["Pacific Ocean", "Arabian Sea", "Bay of Bengal", "Arctic Ocean"], ans: "Arabian Sea", type: "mcq", sinhala: "Sri Lanka වල West (බටහිර) direction එකේ තියෙන්නේ Arabian Sea (අරාබි මුහුද) ය[cite: 170, 544]." },
+          { q: "5. What is the main administrative capital of Sri Lanka?", options: ["Colombo", "Kandy", "Sri Jayewardenepura Kotte", "Galle"], ans: "Sri Jayewardenepura Kotte", type: "mcq", sinhala: "Main administrative capital (පරිපාලන අගනුවර) Sri Jayewardenepura Kotte වේ[cite: 174]." },
+          { q: "6. When facing the morning rising sun with arms stretched, your right hand points to:", options: ["North", "South", "East", "West"], ans: "South", type: "mcq", sinhala: "Rising sun දෙසට face කර අත් දිගු කළ විට right hand එක South (දකුණ) direction එක පෙන්වයි[cite: 121, 542]." },
+          { q: "7. Which natural harbour in Eastern Sri Lanka historically linked East and West naval routes?", options: ["Galle", "Trincomalee", "Colombo", "Hambantota"], ans: "Trincomalee", type: "mcq", sinhala: "Eastern Sri Lanka වල පිහිටි natural harbour (ස්වාභාවික වරාය) Trincomalee වේ[cite: 174, 535, 544]." },
+          { q: "8. Dumbara area in Central Province is famous for which traditional craft?", options: ["Brassware", "Mask making", "Dumbara mats", "Cane crafts"], ans: "Dumbara mats", type: "mcq", sinhala: "Dumbara area එක traditional Dumbara mats (පන් පැදුරු) වලට famous වේ[cite: 147, 534, 542]." },
+          { q: "9. Pilimathalawa in Kandy district is renowned for:", options: ["Brassware", "Masks", "Tiles", "Textiles"], ans: "Brassware", type: "mcq", sinhala: "Pilimathalawa area එක traditional Brassware (පිත්තල භාණ්ඩ) වලට famous වේ[cite: 147, 540, 545]." },
+          { q: "10. What is the atmospheric condition prevailing for a short period in an area called?", options: ["Climate", "Weather", "Precipitation", "Monsoon"], ans: "Weather", type: "mcq", sinhala: "Short period (කෙටි කාලයක්) තුළ පවතින atmospheric condition එකට Weather (කාලගුණය) කියනු ලැබේ[cite: 125, 512, 544]." },
+          { q: "11. Which instrument is used to determine wind direction?", options: ["Anemometer", "Wind vane", "Hygrometer", "Thermometer"], ans: "Wind vane", type: "mcq", sinhala: "Wind direction (සුළඟේ දිශාව) පෙන්වන්නේ Wind vane (සුළං දිශා දර්ශකය) මගිනි[cite: 130, 518]." },
+          { q: "12. What bird helps farmers by destroying crop-damaging snails?", options: ["Crow", "Crow-pheasant", "Parrot", "Bat"], ans: "Crow-pheasant", type: "mcq", sinhala: "Crops වලට හානි කරන snails (ගොළුබෙල්ලන්) destroy කරන්නේ Crow-pheasant (ඇටි-කුකුළා) ය[cite: 139, 534, 544]." },
+          { q: "13. Which of the following is a non-harmful, renewable source of energy?", options: ["Coal", "Petroleum", "Solar cells", "Diesel"], ans: "Solar cells", type: "mcq", sinhala: "Environment එකට harm නොවන renewable energy source එකක් ලෙස Solar cells (සූර්ය කෝෂ) හඳුන්වයි[cite: 165, 535]." },
+          { q: "14. The Southern Expressway is designated as:", options: ["E01", "A01", "B02", "E04"], ans: "E01", type: "mcq", sinhala: "Southern Expressway (දකුණු අධිවේගී මාර්ගය) E01 ලෙස නම් කර ඇත[cite: 175]." },
+          { q: "15. Which region in Sri Lanka is famous for growing grapes, onions, and tobacco?", options: ["Nuwara Eliya", "Jaffna", "Hambantota", "Ratnapura"], ans: "Jaffna", type: "mcq", sinhala: "Grapes, onions සහ tobacco වගාවට famous region එක Jaffna (යාපනය) වේ[cite: 144, 542, 545]." },
+          { q: "16. What is the largest island in the world?", options: ["Madagascar", "Sicily", "Greenland", "Taiwan"], ans: "Greenland", type: "mcq", sinhala: "World එකේ largest island (විශාලතම දූපත) Greenland වේ[cite: 176, 535]." },
+          { q: "17. Name the commercial capital of Sri Lanka:", ans: "Colombo", type: "text", sinhala: "Sri Lanka වල commercial capital (වාණිජ අගනුවර) Colombo (කොළඹ) වේ[cite: 174, 537]." },
+          { q: "18. Name a migratory bird arriving in Sri Lanka during the winter season:", ans: "Indian Pitta", type: "text", sinhala: "Winter season එකේ සංක්‍රමණය වන Migratory bird (සංචාරක පක්ෂියා) Indian Pitta (අවිච්චියා) වේ[cite: 138, 544]." },
+          { q: "19. The latitude line located 23.5 degrees North of the Equator is called:", ans: "Tropic of Cancer", type: "text", sinhala: "Equator එකට 23.5 degrees North පිහිටි latitude line එක Tropic of Cancer (කර්කටක නිවර්තනය) වේ[cite: 172]." },
+          { q: "20. The speed of wind is measured in which metric unit?", ans: "Kilometres per hour", type: "text", sinhala: "Speed of wind (සුළඟේ වේගය) measure කරන standard unit එක Kilometres per hour (පැයට කිලෝමීටර්) වේ[cite: 128, 130]." }
         ]
       }
     },
@@ -146,26 +146,26 @@
       "1": {
         title: "Health & Physical Education: Fitness, Diet & Posture (Day 1)",
         questions: [
-          { q: "1. Health is defined as physical, mental, social, and ______ well-being.", options: ["Financial", "Spiritual", "Educational", "Athletic"], ans: "Spiritual", type: "mcq", sinhala: "Health කියන්නේ physical, mental, social සහ Spiritual well-being වල එකතුවකි." },
-          { q: "2. Which nutrient group is the primary provider of energy for body functions?", options: ["Vitamins", "Proteins", "Carbohydrates", "Minerals"], ans: "Carbohydrates", type: "mcq", sinhala: "Body එකට primary energy provide කරන්නේ Carbohydrates මගිනි." },
-          { q: "3. Deficiency of Vitamin A in children primarily causes:", options: ["Goitre", "Scurvy", "Night blindness", "Rickets"], ans: "Night blindness", type: "mcq", sinhala: "Vitamin A deficiency එක නිසා Night blindness ඇතිවේ." },
-          { q: "4. What is the recommended minimum hours of sleep for a Grade 6 student?", options: ["4 - 5 hours", "6 - 7 hours", "8 - 10 hours", "12 - 14 hours"], ans: "8 - 10 hours", type: "mcq", sinhala: "Grade 6 child කෙනෙකුට daily 8 - 10 hours sleep එකක් essential වේ." },
-          { q: "5. When walking correctly, which part of the foot should strike the ground first?", options: ["Toe", "Ball of foot", "Heel", "Arch"], ans: "Heel", type: "mcq", sinhala: "Correct walking වලදී first ground එක touch වෙන්නේ Heel එකයි." },
-          { q: "6. A healthy school bag should not exceed what percentage of child's body weight?", options: ["10%", "25%", "35%", "50%"], ans: "10%", type: "mcq", sinhala: "School bag weight එක child ගේ body weight එකෙන් 10% ට වඩා වැඩි නොවිය යුතුය." },
-          { q: "7. How many permanent teeth are found in a fully developed human mouth?", options: ["20", "28", "32", "30"], ans: "32", type: "mcq", sinhala: "Human mouth එකක permanent teeth 32 ක් තියෙනවා (milk teeth 20 කි)." },
-          { q: "8. What organ controls temperature, produces Vitamin D, and excretes sweat?", options: ["Lungs", "Kidneys", "Skin", "Liver"], ans: "Skin", type: "mcq", sinhala: "Body temperature control කර sweat excrete කරන්නේ Skin එකෙනි." },
-          { q: "9. Ability to run long distances without getting easily fatigued is called:", options: ["Agility", "Speed", "Endurance", "Flexibility"], ans: "Endurance", type: "mcq", sinhala: "Fatigue නොවී long distance run කිරීමට තියෙන fitness factor එක Endurance වේ." },
-          { q: "10. In a balanced food plate, starchy staple foods should comprise what proportion?", options: ["1/4", "1/2", "3/4", "1/8"], ans: "1/2", type: "mcq", sinhala: "Food plate එකෙන් 1/2 ක් Starchy food (rice, yams) අඩංගු විය යුතුය." },
-          { q: "11. Which disease is non-communicable (does NOT spread from person to person)?", options: ["Common cold", "Tuberculosis", "Diabetes", "Typhoid"], ans: "Diabetes", type: "mcq", sinhala: "Person to person spread නොවෙන non-communicable disease එකක් තමයි Diabetes." },
-          { q: "12. Dengue fever is transmitted to humans by:", options: ["Housefly", "Mosquito bite", "Dirty water", "Cough droplets"], ans: "Mosquito bite", type: "mcq", sinhala: "Dengue transmit වෙන්නේ infected mosquito bite එකක් මගිනි." },
-          { q: "13. In which official posture should students stand when the National Anthem is sung?", options: ["Stand at ease", "Stand ease", "Stand at attention", "Loose posture"], ans: "Stand at attention", type: "mcq", sinhala: "National anthem එක sing කරනකොට stand වෙන්න ඕනේ Stand at attention posture එකෙනි." },
-          { q: "14. How many players form an official Netball team on the court?", options: ["5", "6", "7", "11"], ans: "7", type: "mcq", sinhala: "Netball team එකක court එක ඇතුලේ players ලා 7 දෙනෙක් play කරයි." },
-          { q: "15. The national sport of Sri Lanka is:", options: ["Cricket", "Volleyball", "Elle", "Football"], ans: "Volleyball", type: "mcq", sinhala: "Sri Lanka වල national sport එක Volleyball වේ." },
-          { q: "16. In BMI classification charts for children, which colour indicates overweight?", options: ["Orange", "Green", "Light purple", "Dark purple"], ans: "Light purple", type: "mcq", sinhala: "BMI chart එකේ Light purple zone එකෙන් Overweight පෙන්නුම් කරයි." },
-          { q: "17. Name the micronutrient whose deficiency causes Anaemia (reduced haemoglobin):", ans: "Iron", type: "text", sinhala: "Anaemia හැදෙන්නේ Iron deficiency එකක් ඇති වූ විටයි." },
-          { q: "18. What is the ratio between waist circumference and height recommended to be less than?", ans: "0.5", type: "text", sinhala: "Healthy waist to height ratio එක 0.5 ට වඩා less විය යුතුය." },
-          { q: "19. The skill of understanding and sharing another person's feelings is called:", ans: "Empathy", type: "text", sinhala: "Others ලාගේ feelings තේරුම් ගැනීමේ skill එකට Empathy කියනු ලැබේ." },
-          { q: "20. The immediate care given to an injured person before hospital medical help is:", ans: "First aid", type: "text", sinhala: "Medical help ලැබෙන්න කලින් injured person කෙනෙක්ට දෙන immediate care එක First aid වේ." }
+          { q: "1. Health is defined as physical, mental, social, and ______ well-being.", options: ["Financial", "Spiritual", "Educational", "Athletic"], ans: "Spiritual", type: "mcq", sinhala: "Health (සෞඛ්‍යය) යනු physical, mental, social සහ Spiritual (ආධ්‍යාත්මික) well-being එකකි[cite: 190, 553]." },
+          { q: "2. Which nutrient group is the primary provider of energy for body functions?", options: ["Vitamins", "Proteins", "Carbohydrates", "Minerals"], ans: "Carbohydrates", type: "mcq", sinhala: "Body functions සඳහා primary energy සපයන්නේ Carbohydrates (කාබෝහයිඩ්‍රේට) මගිනි[cite: 287, 289, 549]." },
+          { q: "3. Deficiency of Vitamin A in children primarily causes:", options: ["Goitre", "Scurvy", "Night blindness", "Rickets"], ans: "Night blindness", type: "mcq", sinhala: "Vitamin A deficiency (ඌනතාවය) නිසා Night blindness (මාලන්ධතාව / රාත්‍රී අන්ධතාව) ඇතිවේ[cite: 299, 549]." },
+          { q: "4. What is the recommended minimum hours of sleep for a Grade 6 student?", options: ["4 - 5 hours", "6 - 7 hours", "8 - 10 hours", "12 - 14 hours"], ans: "8 - 10 hours", type: "mcq", sinhala: "Grade 6 student කෙනෙකුට daily 8 - 10 hours sleep (නින්දක්) essential වේ[cite: 196, 310]." },
+          { q: "5. When walking correctly, which part of the foot should strike the ground first?", options: ["Toe", "Ball of foot", "Heel", "Arch"], ans: "Heel", type: "mcq", sinhala: "Correct walking (ඇවිදීමේදී) first ground එක touch විය යුත්තේ Heel (විලුඹ) වේ[cite: 244, 278, 549]." },
+          { q: "6. A healthy school bag should not exceed what percentage of child's body weight?", options: ["10%", "25%", "35%", "50%"], ans: "10%", type: "mcq", sinhala: "School bag weight එක child ගේ body weight එකෙන් 10% (සියයට දහය) නොඉක්මවිය යුතුය[cite: 248]." },
+          { q: "7. How many permanent teeth are found in a fully developed human mouth?", options: ["20", "28", "32", "30"], ans: "32", type: "mcq", sinhala: "Human mouth එකක Permanent teeth (ස්ථිර දත්) 32ක් තියෙනවා (milk teeth 20 කි)[cite: 308, 548]." },
+          { q: "8. What organ controls temperature, produces Vitamin D, and excretes sweat?", options: ["Lungs", "Kidneys", "Skin", "Liver"], ans: "Skin", type: "mcq", sinhala: "Body temperature control කර sweat excrete කරන්නේ Skin (සම) මගිනි[cite: 307, 548]." },
+          { q: "9. Ability to run long distances without getting easily fatigued is called:", options: ["Agility", "Speed", "Endurance", "Flexibility"], ans: "Endurance", type: "mcq", sinhala: "Fatigue (වෙහෙස) නොවී long distance run කිරීමේ fitness factor එක Endurance (දරාගැනීම) වේ[cite: 316, 549]." },
+          { q: "10. In a balanced food plate, starchy staple foods should comprise what proportion?", options: ["1/4", "1/2", "3/4", "1/8"], ans: "1/2", type: "mcq", sinhala: "Food plate එකෙන් 1/2 ක් Starchy food (පිෂ්ඨය අඩංගු ආහාර) තිබිය යුතුය[cite: 291, 554]." },
+          { q: "11. Which disease is non-communicable (does NOT spread from person to person)?", options: ["Common cold", "Tuberculosis", "Diabetes", "Typhoid"], ans: "Diabetes", type: "mcq", sinhala: "Person to person spread නොවෙන non-communicable disease (බෝනොවන රෝගය) Diabetes (දියවැඩියාව) වේ[cite: 329, 549]." },
+          { q: "12. Dengue fever is transmitted to humans by:", options: ["Housefly", "Mosquito bite", "Dirty water", "Cough droplets"], ans: "Mosquito bite", type: "mcq", sinhala: "Dengue transmit වෙන්නේ infected Mosquito bite (මදුරු දෂ්ටනය) මගිනි[cite: 328]." },
+          { q: "13. In which official posture should students stand when the National Anthem is sung?", options: ["Stand at ease", "Stand ease", "Stand at attention", "Loose posture"], ans: "Stand at attention", type: "mcq", sinhala: "National anthem එක sing කරන විට Stand at attention (සීරුවෙන් සිටීමේ ඉරියව්ව) ගත යුතුය[cite: 241]." },
+          { q: "14. How many players form an official Netball team on the court?", options: ["5", "6", "7", "11"], ans: "7", type: "mcq", sinhala: "Netball team එකක court එක තුළ 7 players (ක්‍රීඩිකාවන් 7ක්) play කරයි[cite: 263, 549]." },
+          { q: "15. The national sport of Sri Lanka is:", options: ["Cricket", "Volleyball", "Elle", "Football"], ans: "Volleyball", type: "mcq", sinhala: "Sri Lanka වල national sport (ජාතික ක්‍රීඩාව) Volleyball (වොලිබෝල්) වේ[cite: 260, 555]." },
+          { q: "16. In BMI classification charts for children, which colour indicates overweight?", options: ["Orange", "Green", "Light purple", "Dark purple"], ans: "Light purple", type: "mcq", sinhala: "BMI chart එකේ Light purple zone එකෙන් Overweight (අධිබර) පෙන්නුම් කරයි[cite: 202, 548]." },
+          { q: "17. Name the micronutrient whose deficiency causes Anaemia (reduced haemoglobin):", ans: "Iron", type: "text", sinhala: "Anaemia (රක්තහීනතාවය) ඇතිවන්නේ Iron (යකඩ) deficiency එකක් නිසාය[cite: 298]." },
+          { q: "18. What is the ratio between waist circumference and height recommended to be less than?", ans: "0.5", type: "text", sinhala: "Waist to height ratio (ඉණ වටප්‍රමාණය සහ උස අනුපාතය) 0.5ට වඩා less විය යුතුය[cite: 204, 553]." },
+          { q: "19. The skill of understanding and sharing another person's feelings is called:", ans: "Empathy", type: "text", sinhala: "Others ලාගේ feelings තේරුම් ගැනීමේ life skill එක Empathy (සහකම්පනය) වේ[cite: 219]." },
+          { q: "20. The immediate care given to an injured person before hospital medical help is:", ans: "First aid", type: "text", sinhala: "Medical help ලැබෙන්න කලින් දෙන immediate care එක First aid (ප්‍රථමාධාර) වේ[cite: 284]." }
         ]
       }
     },
@@ -173,26 +173,26 @@
       "1": {
         title: "Civic Education: School, Community & Citizenship (Day 1)",
         questions: [
-          { q: "1. Who is the administrative head and chief pilot of educational activities in a school?", options: ["Sectional Head", "Class Monitor", "Principal", "Grama Niladhari"], ans: "Principal", type: "mcq", sinhala: "School එකේ head සහ pilot of educational activities වන්නේ Principal වේ." },
-          { q: "2. Receiving free textbooks and uniform material from the government is a student's:", options: ["Duty", "Right", "Tradition", "Penalty"], ans: "Right", type: "mcq", sinhala: "Free textbooks සහ uniform material ලැබීම student කෙනෙකුගේ Right එකක් වේ." },
-          { q: "3. Taking care of classroom desks and school property is a student's:", options: ["Right", "Duty", "Option", "Favor"], ans: "Duty", type: "mcq", sinhala: "School property protect කිරීම student කෙනෙකුගේ Duty එකක් වේ." },
-          { q: "4. The father of Free Education in Sri Lanka who established Central Colleges is:", options: ["Senaka Bibile", "C.W.W. Kannangara", "Ananda Samarakoon", "Sekara Vidanarachchi"], ans: "C.W.W. Kannangara", type: "mcq", sinhala: "Sri Lanka වල Father of Free Education ලෙස හඳුන්වන්නේ C.W.W. Kannangara මැතිතුමාය." },
-          { q: "5. Who composed the national anthem of Sri Lanka?", options: ["Mahagama Sekara", "W.D. Amaradeva", "Ananda Samarakoon", "C.S. Jayasinha"], ans: "Ananda Samarakoon", type: "mcq", sinhala: "National anthem එක compose කළේ Ananda Samarakoon ශ්‍රීමතාණන්ය." },
-          { q: "6. Which official coordinates government relief and residency proof at village level?", options: ["Divisional Secretary", "Grama Niladhari", "Principal", "Mayor"], ans: "Grama Niladhari", type: "mcq", sinhala: "Village level එකේ relief සහ residency confirm කරන officer Grama Niladhari වේ." },
-          { q: "7. Who is the head of a Municipal Council in major cities like Colombo and Kandy?", options: ["Chairman", "Mayor", "District Secretary", "Governor"], ans: "Mayor", type: "mcq", sinhala: "Municipal Council එකක head වන්නේ Mayor වේ." },
-          { q: "8. What road marking indicates a legal and safe crossing zone for pedestrians?", options: ["Yellow line", "Speed bump", "Zebra crossing", "White arrow"], ans: "Zebra crossing", type: "mcq", sinhala: "Pedestrians ලාට safe cross කරන්න තියෙන්නේ Zebra crossing එකයි." },
-          { q: "9. Pedestrians on roads without sidewalks should safely walk on the:", options: ["Left hand side", "Right hand side", "Middle", "Opposite side of traffic"], ans: "Right hand side", type: "mcq", sinhala: "Pavements නැති road එකක pedestrians ලා Right hand side එකෙන් walk කළ යුතුය." },
-          { q: "10. Public property includes which of the following?", options: ["Private car", "School building", "Personal bicycle", "Home garden"], ans: "School building", type: "mcq", sinhala: "Public property කියන්නේ common public එක වෙනුවෙන් provide කර ඇති දේවල් (School building)." },
-          { q: "11. Listening attentively and comprehensively with understanding is called:", options: ["Hearing", "Active listening", "Casual talk", "Idle conversation"], ans: "Active listening", type: "mcq", sinhala: "Attentively සහ comprehensively listen කිරීමට Active listening කියනු ලැබේ." },
-          { q: "12. Professor Senaka Bibile is globally famous for introducing the policy of:", options: ["Free schools", "Affordable essential drugs / Osusala", "Organic fertilizer", "Irrigation dams"], ans: "Affordable essential drugs / Osusala", type: "mcq", sinhala: "Prof. Senaka Bibile famous වුණේ essential drugs low-price එකට provide කිරීමේ drug policy එක සහ State Osusala නිසාය." },
-          { q: "13. What committee in school brings together parents, past pupils, and teachers for development?", options: ["Board of Prefects", "School Development Committee", "Scouting Committee", "Discipline Committee"], ans: "School Development Committee", type: "mcq", sinhala: "School development affairs maintain කරන්නේ School Development Committee එකෙනි." },
-          { q: "14. Standing straight and maintaining eye contact while speaking shows:", options: ["Aggression", "Polite speech and confidence", "Disobedience", "Weakness"], ans: "Polite speech and confidence", type: "mcq", sinhala: "Eye contact සහ straight posture තබාගෙන speak කිරීම Polite speech එකක feature එකකි." },
-          { q: "15. The ancient miraculous canal conveying water from Kala Wewa to Tissa Wewa is:", options: ["Minipe Ela", "Jaya Ganga", "Kalinga Ela", "Yoda Ela of Ruhuna"], ans: "Jaya Ganga", type: "mcq", sinhala: "Kala Wewa සිට Tissa Wewa ට water ගෙනියන miraculous creation එක Jaya Ganga වේ." },
-          { q: "16. Which ancient rock-carved Buddha statue stands 39 feet 10 inches high near Kala Wewa?", options: ["Gal Viharaya", "Avukana statue", "Buduruvagala", "Maligawila"], ans: "Avukana statue", type: "mcq", sinhala: "Kala Wewa අසල පිහිටි අඩි 39 අඟල් 10 ක් උස Buddha statue එක Avukana statue වේ." },
-          { q: "17. What official government document officially proves a student's full name and age?", ans: "Birth certificate", type: "text", sinhala: "Full name සහ age confirm කරන official legal document එක Birth certificate එකයි." },
-          { q: "18. What symbol on a school uniform represents the school identity and motto?", ans: "School crest", type: "text", sinhala: "School identity එක represent කරන symbol එක School crest එකයි." },
-          { q: "19. The administrative head of an Urban Council is called the:", ans: "Chairman", type: "text", sinhala: "Urban Council එකක head Chairman ලෙස හඳුන්වයි." },
-          { q: "20. The smallest administrative area under local government administration is the:", ans: "Grama Niladhari Division", type: "text", sinhala: "Local administrative structure එකේ smallest division එක Grama Niladhari Division වේ." }
+          { q: "1. Who is the administrative head and chief pilot of educational activities in a school?", options: ["Sectional Head", "Class Monitor", "Principal", "Grama Niladhari"], ans: "Principal", type: "mcq", sinhala: "School එකේ head සහ pilot of education වන්නේ Principal (විදුහල්පති) වේ[cite: 16]." },
+          { q: "2. Receiving free textbooks and uniform material from the government is a student's:", options: ["Duty", "Right", "Tradition", "Penalty"], ans: "Right", type: "mcq", sinhala: "Free textbooks සහ uniform material ලැබීම student කෙනෙකුගේ Right (අයිතිවාසිකමක්) වේ[cite: 31, 41]." },
+          { q: "3. Taking care of classroom desks and school property is a student's:", options: ["Right", "Duty", "Option", "Favor"], ans: "Duty", type: "mcq", sinhala: "School property protect කිරීම student කෙනෙකුගේ Duty (යුතුකමක්/වගකීමක්) වේ[cite: 41, 42]." },
+          { q: "4. The father of Free Education in Sri Lanka who established Central Colleges is:", options: ["Senaka Bibile", "C.W.W. Kannangara", "Ananda Samarakoon", "Sekara Vidanarachchi"], ans: "C.W.W. Kannangara", type: "mcq", sinhala: "Father of Free Education (නිදහස් අධ්‍යාපනයේ පියා) ලෙස හඳුන්වන්නේ Dr. C.W.W. Kannangara මැතිතුමාය[cite: 25]." },
+          { q: "5. Who composed the national anthem of Sri Lanka?", options: ["Mahagama Sekara", "W.D. Amaradeva", "Ananda Samarakoon", "C.S. Jayasinha"], ans: "Ananda Samarakoon", type: "mcq", sinhala: "National anthem (ජාතික ගීය) compose කළේ Ananda Samarakoon ශ්‍රීමතාණන්ය[cite: 4, 106]." },
+          { q: "6. Which official coordinates government relief and residency proof at village level?", options: ["Divisional Secretary", "Grama Niladhari", "Principal", "Mayor"], ans: "Grama Niladhari", type: "mcq", sinhala: "Village level එකේ residency confirm කරන officer Grama Niladhari (ග්‍රාම නිලධාරී) වේ[cite: 50, 63]." },
+          { q: "7. Who is the head of a Municipal Council in major cities like Colombo and Kandy?", options: ["Chairman", "Mayor", "District Secretary", "Governor"], ans: "Mayor", type: "mcq", sinhala: "Municipal Council (මහා නගර සභාවක) head Mayor (නගරාධිපති) වේ[cite: 64]." },
+          { q: "8. What road marking indicates a legal and safe crossing zone for pedestrians?", options: ["Yellow line", "Speed bump", "Zebra crossing", "White arrow"], ans: "Zebra crossing", type: "mcq", sinhala: "Pedestrians (පදිකයින්ට) safe cross කිරීමට ඇත්තේ Zebra crossing (පදික මාරුව) ය[cite: 78]." },
+          { q: "9. Pedestrians on roads without sidewalks should safely walk on the:", options: ["Left hand side", "Right hand side", "Middle", "Opposite side of traffic"], ans: "Right hand side", type: "mcq", sinhala: "Pavements නැති road එකක pedestrians ලා Right hand side (දකුණු පසින්) walk කළ යුතුය[cite: 334]." },
+          { q: "10. Public property includes which of the following?", options: ["Private car", "School building", "Personal bicycle", "Home garden"], ans: "School building", type: "mcq", sinhala: "Public property (පොදු දේපළ) කියන්නේ public good එක වෙනුවෙන් provide කර ඇති School building වැනි දෑ වේ[cite: 78, 88]." },
+          { q: "11. Listening attentively and comprehensively with understanding is called:", options: ["Hearing", "Active listening", "Casual talk", "Idle conversation"], ans: "Active listening", type: "mcq", sinhala: "Attentively සහ comprehensively listen කිරීමට Active listening (සක්‍රීය සවන්දීම) කියනු ලැබේ[cite: 74, 75]." },
+          { q: "12. Professor Senaka Bibile is globally famous for introducing the policy of:", options: ["Free schools", "Affordable essential drugs / Osusala", "Organic fertilizer", "Irrigation dams"], ans: "Affordable essential drugs / Osusala", type: "mcq", sinhala: "Prof. Senaka Bibile famous වුණේ affordable essential drugs provide කිරීමේ State Osusala (රාජ්‍ය ඔසුසල) ප්‍රතිපත්තිය නිසාය[cite: 29]." },
+          { q: "13. What committee in school brings together parents, past pupils, and teachers for development?", options: ["Board of Prefects", "School Development Committee", "Scouting Committee", "Discipline Committee"], ans: "School Development Committee", type: "mcq", sinhala: "School affairs develop කරන්නේ School Development Committee (පාසල් සංවර්ධන සමිතිය) එකෙනි[cite: 46]." },
+          { q: "14. Standing straight and maintaining eye contact while speaking shows:", options: ["Aggression", "Polite speech and confidence", "Disobedience", "Weakness"], ans: "Polite speech and confidence", type: "mcq", sinhala: "Eye contact තබාගෙන straight posture එකෙන් speak කිරීම Polite speech (යහපත් කථනය) වේ[cite: 71, 72]." },
+          { q: "15. The ancient miraculous canal conveying water from Kala Wewa to Tissa Wewa is:", options: ["Minipe Ela", "Jaya Ganga", "Kalinga Ela", "Yoda Ela of Ruhuna"], ans: "Jaya Ganga", type: "mcq", sinhala: "Kala Wewa සිට Tissa Wewa ට water ගෙනියන canal එක Jaya Ganga (ජය ගඟ / යෝධ ඇළ) වේ[cite: 99]." },
+          { q: "16. Which ancient rock-carved Buddha statue stands 39 feet 10 inches high near Kala Wewa?", options: ["Gal Viharaya", "Avukana statue", "Buduruvagala", "Maligawila"], ans: "Avukana statue", type: "mcq", sinhala: "Kala Wewa අසල පිහිටි අඩි 39 අඟල් 10 ක් උස නිර්මාණය Avukana statue (අවුකන බුදු පිළිමය) වේ[cite: 98]." },
+          { q: "17. What official government document officially proves a student's full name and age?", ans: "Birth certificate", type: "text", sinhala: "Full name සහ age confirm කරන official legal document එක Birth certificate (උප්පැන්න සහතිකය) වේ[cite: 20]." },
+          { q: "18. What symbol on a school uniform represents the school identity and motto?", ans: "School crest", type: "text", sinhala: "School identity එක represent කරන official symbol එක School crest (පාසල් ලාංඡනය) වේ[cite: 36, 37]." },
+          { q: "19. The administrative head of an Urban Council is called the:", ans: "Chairman", type: "text", sinhala: "Urban Council (නගර සභාවක) administrative head Chairman (සභාපති) වේ[cite: 65]." },
+          { q: "20. The smallest administrative area under local government administration is the:", ans: "Grama Niladhari Division", type: "text", sinhala: "Local administrative structure එකේ smallest division එක Grama Niladhari Division (ග්‍රාම නිලධාරී වසම) වේ[cite: 50, 115]." }
         ]
       }
     }
@@ -258,12 +258,13 @@
                 '<div class="q-text">' + q.q + '</div>';
 
       if (q.type === 'mcq') {
+        html += '<div class="options-group" data-qidx="' + idx + '">';
         q.options.forEach(function(opt) {
-          var cleanOpt = opt.replace(/[^a-zA-Z0-9]/g, '');
-          html += '<button type="button" class="option-btn" id="opt-' + idx + '-' + cleanOpt + '" onclick="selectMCQ(' + idx + ', ' + JSON.stringify(opt) + ')">' + opt + '</button>';
+          html += '<button type="button" class="option-btn" onclick="selectOption(this, ' + idx + ', ' + JSON.stringify(opt) + ')">' + opt + '</button>';
         });
+        html += '</div>';
       } else {
-        html += '<input type="text" class="text-input" placeholder="Type answer in English..." oninput="selectText(' + idx + ', this.value)">';
+        html += '<input type="text" class="text-input" placeholder="Type answer in English..." oninput="recordText(' + idx + ', this.value)">';
       }
 
       html += '</div>';
@@ -272,16 +273,15 @@
     document.getElementById('quiz-container').innerHTML = html;
   }
 
-  function selectMCQ(qIdx, val) {
-    userAnswers[qIdx] = val;
-    var opts = document.querySelectorAll('[id^="opt-' + qIdx + '-"]');
-    opts.forEach(function(btn) { btn.classList.remove('selected'); });
-    var cleanVal = val.replace(/[^a-zA-Z0-9]/g, '');
-    var el = document.getElementById('opt-' + qIdx + '-' + cleanVal);
-    if (el) el.classList.add('selected');
+  function selectOption(btnElement, qIdx, value) {
+    userAnswers[qIdx] = value;
+    var parent = btnElement.parentElement;
+    var allBtns = parent.querySelectorAll('.option-btn');
+    allBtns.forEach(function(b) { b.classList.remove('selected'); });
+    btnElement.classList.add('selected');
   }
 
-  function selectText(qIdx, val) {
+  function recordText(qIdx, val) {
     userAnswers[qIdx] = val.trim();
   }
 
@@ -299,8 +299,8 @@
           (isCorrect ? '✓ Correct' : '✗ Needs Practice') +
         '</div>' +
         '<div style="font-weight:600; font-size:0.88rem; margin: 4px 0;">' + q.q + '</div>' +
-        '<div style="font-size:0.82rem;">Your Answer: <b>' + uAns + '</b> | Correct Answer: <b style="color:var(--primary);">' + q.ans + '</b></div>' +
-        '<div class="sinhala-review">💡 <b>Sinhala Guide:</b> ' + q.sinhala + '</div>' +
+        '<div style="font-size:0.84rem;">Your Answer: <b>' + uAns + '</b> | Correct Answer: <b style="color:var(--primary);">' + q.ans + '</b></div>' +
+        '<div class="sinhala-review">💡 <b>Review Note:</b> ' + q.sinhala + '</div>' +
       '</div>';
     });
 
@@ -310,7 +310,7 @@
     var feedbackEl = document.getElementById('target-feedback');
     if (percentage >= 65) {
       feedbackEl.className = 'target-met';
-      feedbackEl.innerText = '🎯 Target Passed (65%+)! Great progress towards term test target!';
+      feedbackEl.innerText = '🎯 Target Passed (65%+)! Great progress towards the term test!';
     } else {
       feedbackEl.className = 'target-missed';
       feedbackEl.innerText = '📖 You scored below 65%. Please read all review notes below carefully!';
@@ -323,7 +323,6 @@
   }
 
   function shareWhatsAppDirect() {
-    var score = 0;
     var wrongReport = [];
     var correctCount = 0;
 

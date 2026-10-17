@@ -73,11 +73,10 @@
 
 <script>
   // Tutor WhatsApp Direct Number Routing
-  const DOMAIN = "https://wa." + "me/";
-  const CONTACT_PARTS = ["94", "70", "154", "3307"];
-  const TARGET_RECIPIENT = CONTACT_PARTS.join("");
+  var WA_BASE = "[suspicious link removed]";
+  var TARGET_PHONE = "94701543307";
 
-  const questionBank = {
+  var questionBank = {
     science: {
       "1": {
         title: "Science - Living World & Plants (Day 1)",
@@ -147,6 +146,19 @@
           { q: "7. What index is used to check height and weight proportion?", ans: "Body Mass Index", type: "text", sinhala: "BMI / Body Mass Index (ශරීර ස්කන්ධ දර්ශකය): උසට සරිලන බර පරීක්ෂා කරන දර්ශකයයි." },
           { q: "8. Name the macronutrient essential for body growth and repair:", ans: "Proteins", type: "text", sinhala: "Proteins (ප්‍රෝටීන්): ශරීර වර්ධනයට හා පටක අලුත්වැඩියාවට අත්‍යවශ්‍ය වේ." }
         ]
+      },
+      "2": {
+        title: "Health & HPE - Physical Fitness & Safety (Day 2)",
+        questions: [
+          { q: "1. Which component of fitness helps in changing direction rapidly?", options: ["Agility", "Strength", "Endurance", "Flexibility"], ans: "Agility", type: "mcq", sinhala: "Agility (සුපිරික්ෂාකාරී බව / චලන වේගය): ඉක්මනින් දිශාව වෙනස් කිරීමේ හැකියාවයි." },
+          { q: "2. What is the immediate care given to an injured person before medical help?", ans: "First Aid", type: "text", sinhala: "First Aid (ප්‍රථමාධාර): වෛද්‍ය උපකාර ලැබීමට පෙර රෝගියාට ලබාදෙන ක්ෂණික සත්කාරයයි." },
+          { q: "3. Proper posture while lifting heavy objects requires bending at the:", options: ["Knees", "Waist", "Neck", "Elbows"], ans: "Knees", type: "mcq", sinhala: "Lifting Posture: බරක් එසවීමේදී ඉණ නොව දණහිස් නැමිය යුතුය." },
+          { q: "4. Water soluble vitamins are:", options: ["Vitamin B and C", "Vitamin A and D", "Vitamin E and K", "Vitamin A and C"], ans: "Vitamin B and C", type: "mcq", sinhala: "Water Soluble Vitamins (ජලයේ දියවන විටමින්): විටමින් B සහ C ජලයේ දියවේ." },
+          { q: "5. Name the sensory organ responsible for maintaining body balance:", ans: "Ear", type: "text", sinhala: "Ear (කන): ශ්‍රවණයට අමතරව ශරීරයේ සමබරතාවය පවත්වා ගැනීමට උපකාරී වේ." },
+          { q: "6. Excess intake of sugar and starch can lead to:", options: ["Obesity", "Night blindness", "Scurvy", "Rickets"], ans: "Obesity", type: "mcq", sinhala: "Obesity (ස්ථූලතාවය): වැඩිපුර සීනි හා පිෂ්ඨය අනුභවයෙන් අධික ලෙස බර වැඩිවීම." },
+          { q: "7. Which posture prevents spinal damage when carrying a backpack?", options: ["Straps on both shoulders", "One shoulder strap", "Carrying in hand", "Bending forward"], ans: "Straps on both shoulders", type: "mcq", sinhala: "Backpack posture: පසුවම් පටිය කරපටි දෙකෙන්ම කරට දැමිය යුතුය." },
+          { q: "8. Write the term for total physical, mental, social, and spiritual well-being:", ans: "Health", type: "text", sinhala: "Health (සෞඛ්‍යය): කායික, මානසික, සාමාජික හා මනෝසාමාජීය පූර්ණ යහපැවැත්මයි." }
+        ]
       }
     },
     civic: {
@@ -162,33 +174,56 @@
           { q: "7. Write one public service institution located in a district:", ans: "Hospital", type: "text", sinhala: "Public Institution (පොදු ආයතන): රෝහල, තැපැල් කන්තෝරුව, පොලීසිය, පාසල." },
           { q: "8. Name the highest administrative officer in a school:", ans: "Principal", type: "text", sinhala: "Principal (විදුහල්පති): පාසලක ප්‍රධාන පාලක හා පරිපාලන නිලධාරියා වේ." }
         ]
+      },
+      "2": {
+        title: "Civic Education - Good Citizenship & Region (Day 2)",
+        questions: [
+          { q: "1. The small administrative area under a Grama Niladhari is called:", options: ["Grama Niladhari Division", "Province", "District", "Country"], ans: "Grama Niladhari Division", type: "mcq", sinhala: "Grama Niladhari Division (ග්‍රාම නිලධාරී වසම): ප්‍රාදේශීය මට්ටමේ කුඩාම පරිපාලන ඒකකයයි." },
+          { q: "2. Which colorful mark on the road indicates pedestrian crossing?", options: ["Zebra crossing", "Yellow line", "Red light", "Speed bump"], ans: "Zebra crossing", type: "mcq", sinhala: "Zebra crossing (කළු සුදු පදික මාරුව): පදිකයින්ට පාර මාරුවීමට ඇති ස්ථානයයි." },
+          { q: "3. Helping an elderly person cross the road is an example of good:", options: ["Citizenship", "Business", "Competition", "Punishment"], ans: "Citizenship", type: "mcq", sinhala: "Good Citizenship (හොඳ පුරවැසිභාවය): අන්අයට උපකාර කිරීම සහ යහපත් සමාජ හැසිරීම." },
+          { q: "4. Name the national anthem of Sri Lanka's key composer:", ans: "Ananda Samarakoon", type: "text", sinhala: "Ananda Samarakoon (ආනන්ද සමරකෝන් ශ්‍රීමතාණන්): ජාතික ගීය නිර්මාණය කළ කලාකරුවා." },
+          { q: "5. Using polite words like 'Thank you' and 'Please' shows good:", options: ["Manners", "Rules", "Rights", "Penalties"], ans: "Manners", type: "mcq", sinhala: "Manners (යහපත් ගුණධර්ම): කාරුණික හා ගෞරවනීය ලෙස අන්අය ඇමතීම." },
+          { q: "6. Which official heads the Divisional Secretariat area?", options: ["Divisional Secretary", "Principal", "Doctor", "Police officer"], ans: "Divisional Secretary", type: "mcq", sinhala: "Divisional Secretary (ප්‍රාදේශීය ලේකම්): ප්‍රාදේශීය ලේකම් කොට්ඨාශයේ ප්‍රධාන නිලධාරියා." },
+          { q: "7. Protecting historical monuments in Sri Lanka is the responsibility of:", options: ["All citizens", "Only tourists", "Only police", "Only students"], ans: "All citizens", type: "mcq", sinhala: "Preserving Heritage: ඓතිහාසික ස්ථාන ආරක්ෂා කිරීම සියලු පුරවැසියන්ගේ වගකීමකි." },
+          { q: "8. Name one student committee in school that helps maintain discipline:", ans: "Prefects Guild", type: "text", sinhala: "Prefects Guild (ශිෂ්‍ය නායක මණ්ඩලය): පාසල් විනය හා කටයුතු පාලනයට උපකාරී වේ." }
+        ]
       }
     }
   };
 
-  let currentSubject = 'science';
-  let currentDay = '1';
-  let userAnswers = {};
-  let currentQuestions = [];
+  // Safe Query Parameter Extraction using Regex (Works on ALL mobile browsers & webviews)
+  function getQueryParam(param) {
+    var href = window.location.href;
+    var reg = new RegExp('[?&]' + param + '=([^&#]*)', 'i');
+    var string = reg.exec(href);
+    return string ? decodeURIComponent(string[1]) : null;
+  }
+
+  var currentSubject = 'science';
+  var currentDay = '1';
+  var userAnswers = {};
+  var currentQuestions = [];
 
   window.addEventListener('DOMContentLoaded', function() {
-    let selectedSub = 'science';
-    let selectedDay = '1';
+    var rawSub = getQueryParam('s') || getQueryParam('subject') || 'science';
+    var rawDay = getQueryParam('d') || getQueryParam('day') || '1';
 
-    try {
-      let params = new URLSearchParams([+94701543307]);
-      selectedSub = params.get('s') || params.get('subject') || 'science';
-      selectedDay = params.get('d') || params.get('day') || '1';
-    } catch(e) {
-      selectedSub = 'science';
-      selectedDay = '1';
-    }
+    rawSub = rawSub.toLowerCase().trim();
+    rawDay = rawDay.trim();
+
+    // Map common subject aliases
+    if (rawSub === 'sci') rawSub = 'science';
+    if (rawSub === 'geo') rawSub = 'geography';
+    if (rawSub === 'hpe' || rawSub === 'hp') rawSub = 'health';
+    if (rawSub === 'civ' || rawSub === 'civics') rawSub = 'civic';
+
+    currentSubject = questionBank[rawSub] ? rawSub : 'science';
+    var subData = questionBank[currentSubject];
     
-    currentSubject = questionBank[selectedSub] ? selectedSub : 'science';
-    let subData = questionBank[currentSubject];
-    currentDay = subData[selectedDay] ? selectedDay : Object.keys(subData);
+    // Safely check if day exists, otherwise default to "1"
+    currentDay = (subData && subData[rawDay]) ? rawDay : '1';
 
-    let quizData = subData[currentDay];
+    var quizData = subData[currentDay];
 
     document.getElementById('subject-tag').innerText = currentSubject.toUpperCase();
     document.getElementById('day-tag').innerText = 'DAY ' + currentDay;
@@ -199,15 +234,15 @@
   });
 
   function renderQuiz() {
-    let html = '';
-    currentQuestions.forEach((q, idx) => {
+    var html = '';
+    currentQuestions.forEach(function(q, idx) {
       html += '<div class="quiz-card">' +
                 '<div class="q-number">Question ' + (idx + 1) + '</div>' +
                 '<div class="q-text">' + q.q + '</div>';
 
       if (q.type === 'mcq') {
-        q.options.forEach(opt => {
-          let cleanOpt = opt.replace(/[^a-zA-Z0-9]/g, '');
+        q.options.forEach(function(opt) {
+          var cleanOpt = opt.replace(/[^a-zA-Z0-9]/g, '');
           html += '<button class="option-btn" id="opt-' + idx + '-' + cleanOpt + '" onclick="selectMCQ(' + idx + ', ' + JSON.stringify(opt) + ')">' + opt + '</button>';
         });
       } else {
@@ -222,10 +257,10 @@
 
   function selectMCQ(qIdx, val) {
     userAnswers[qIdx] = val;
-    let opts = document.querySelectorAll('[id^="opt-' + qIdx + '-"]');
-    opts.forEach(btn => btn.classList.remove('selected'));
-    let cleanVal = val.replace(/[^a-zA-Z0-9]/g, '');
-    let el = document.getElementById('opt-' + qIdx + '-' + cleanVal);
+    var opts = document.querySelectorAll('[id^="opt-' + qIdx + '-"]');
+    opts.forEach(function(btn) { btn.classList.remove('selected'); });
+    var cleanVal = val.replace(/[^a-zA-Z0-9]/g, '');
+    var el = document.getElementById('opt-' + qIdx + '-' + cleanVal);
     if (el) el.classList.add('selected');
   }
 
@@ -234,12 +269,12 @@
   }
 
   function submitAnswers() {
-    let score = 0;
-    let reviewHtml = '';
+    var score = 0;
+    var reviewHtml = '';
 
-    currentQuestions.forEach((q, idx) => {
-      let uAns = userAnswers[idx] || 'Not answered';
-      let isCorrect = uAns.toLowerCase() === q.ans.toLowerCase();
+    currentQuestions.forEach(function(q, idx) {
+      var uAns = userAnswers[idx] || 'Not answered';
+      var isCorrect = uAns.toLowerCase() === q.ans.toLowerCase();
       if (isCorrect) score++;
 
       reviewHtml += '<div class="review-card ' + (isCorrect ? 'correct' : 'incorrect') + '">' +
@@ -260,9 +295,9 @@
   }
 
   function shareWhatsAppDirect() {
-    let score = document.getElementById('score-text').innerText;
-    let text = "Hello Teacher! I completed today's Grade 6 " + currentSubject.toUpperCase() + " (Day " + currentDay + ") quiz. My score is " + score + "!";
-    let waUrl = DOMAIN + TARGET_RECIPIENT + "?text=" + encodeURIComponent(text);
+    var score = document.getElementById('score-text').innerText;
+    var text = "Hello Teacher! I completed today's Grade 6 " + currentSubject.toUpperCase() + " (Day " + currentDay + ") quiz. My score is " + score + "!";
+    var waUrl = WA_BASE + TARGET_PHONE + "?text=" + encodeURIComponent(text);
     window.location.href = waUrl;
   }
 </script>

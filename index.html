@@ -18,261 +18,316 @@
       --sinhala-text: #92400E;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; -webkit-tap-highlight-color: transparent; }
-    body { background-color: var(--bg); color: var(--text); padding: 14px; display: flex; justify-content: center; }
-    .app-container { width: 100%; max-width: 520px; background: var(--card); border-radius: 24px; box-shadow: 0 12px 30px rgba(0,0,0,0.06); padding: 22px; min-height: 90vh; display: flex; flex-direction: column; justify-content: space-between; }
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+      -webkit-tap-highlight-color: transparent; 
+    }
+    
+    body { 
+      background-color: var(--bg); 
+      color: var(--text); 
+      padding: 14px; 
+      display: flex; 
+      justify-content: center; 
+    }
+    
+    .app-container { 
+      width: 100%; 
+      max-width: 520px; 
+      background: var(--card); 
+      border-radius: 24px; 
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06); 
+      padding: 22px; 
+      min-height: 90vh; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between; 
+    }
 
-    .header { padding-bottom: 14px; border-bottom: 2px solid #F1F5F9; margin-bottom: 16px; }
-    .badge-row { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
-    .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .header { 
+      padding-bottom: 14px; 
+      border-bottom: 2px solid #F1F5F9; 
+      margin-bottom: 16px; 
+    }
+    
+    .badge-row { 
+      display: flex; 
+      gap: 8px; 
+      margin-bottom: 8px; 
+      flex-wrap: wrap; 
+    }
+    
+    .badge { 
+      display: inline-block; 
+      padding: 4px 12px; 
+      border-radius: 20px; 
+      font-size: 0.75rem; 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      letter-spacing: 0.5px; 
+    }
+    
     .subject-tag { background: var(--primary-light); color: var(--primary); }
     .day-tag { background: #FEF3C7; color: #92400E; }
     .target-tag { background: #DCFCE7; color: #166534; }
     .header h1 { font-size: 1.2rem; color: var(--text); font-weight: 800; }
 
-    .quiz-card { background: #F8FAFC; border: 1.5px solid #E2E8F0; border-radius: 16px; padding: 14px; margin-bottom: 14px; }
-    .q-number { font-size: 0.72rem; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 4px; }
-    .q-text { font-weight: 600; font-size: 0.94rem; margin-bottom: 12px; line-height: 1.45; }
+    .selector-bar { 
+      display: flex; 
+      gap: 8px; 
+      margin-bottom: 16px; 
+    }
     
-    .option-btn { width: 100%; text-align: left; background: #FFFFFF; border: 1.5px solid #CBD5E1; padding: 12px 14px; border-radius: 12px; margin-bottom: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.15s ease; outline: none; }
+    .select-dropdown { 
+      flex: 1; 
+      padding: 10px 12px; 
+      border-radius: 12px; 
+      border: 1.5px solid #CBD5E1; 
+      font-weight: 600; 
+      outline: none; 
+      background: #FFF; 
+      font-size: 0.88rem; 
+      cursor: pointer;
+    }
+
+    .quiz-card { 
+      background: #F8FAFC; 
+      border: 1.5px solid #E2E8F0; 
+      border-radius: 16px; 
+      padding: 14px; 
+      margin-bottom: 14px; 
+    }
+    
+    .q-number { 
+      font-size: 0.72rem; 
+      font-weight: 800; 
+      color: var(--primary); 
+      text-transform: uppercase; 
+      margin-bottom: 4px; 
+    }
+    
+    .q-text { 
+      font-weight: 600; 
+      font-size: 0.94rem; 
+      margin-bottom: 12px; 
+      line-height: 1.45; 
+    }
+
+    .option-btn { 
+      width: 100%; 
+      text-align: left; 
+      background: #FFFFFF; 
+      border: 1.5px solid #CBD5E1; 
+      padding: 12px 14px; 
+      border-radius: 12px; 
+      margin-bottom: 8px; 
+      font-size: 0.9rem; 
+      font-weight: 500; 
+      cursor: pointer; 
+      transition: all 0.15s ease; 
+      outline: none; 
+    }
+    
     .option-btn:hover { background: #F1F5F9; }
-    .option-btn.selected { border-color: var(--primary) !important; background: var(--primary-light) !important; color: var(--primary) !important; font-weight: 700 !important; }
-    .text-input { width: 100%; padding: 12px 14px; border: 1.5px solid #CBD5E1; border-radius: 12px; font-size: 0.9rem; outline: none; }
+    .option-btn.selected { 
+      border-color: var(--primary) !important; 
+      background: var(--primary-light) !important; 
+      color: var(--primary) !important; 
+      font-weight: 700 !important; 
+    }
+    
+    .text-input { 
+      width: 100%; 
+      padding: 12px 14px; 
+      border: 1.5px solid #CBD5E1; 
+      border-radius: 12px; 
+      font-size: 0.9rem; 
+      outline: none; 
+    }
+    
     .text-input:focus { border-color: var(--primary); }
 
-    .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 14px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 10px; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
-    .btn-whatsapp { width: 100%; background: #25D366; color: white; border: none; padding: 14px; border-radius: 14px; font-weight: 700; font-size: 0.95rem; cursor: pointer; margin-top: 12px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
+    .btn-submit { 
+      width: 100%; 
+      background: var(--primary); 
+      color: white; 
+      border: none; 
+      padding: 15px; 
+      border-radius: 14px; 
+      font-weight: 700; 
+      font-size: 1rem; 
+      cursor: pointer; 
+      margin-top: 10px; 
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); 
+    }
+    
+    .btn-whatsapp { 
+      width: 100%; 
+      background: #25D366; 
+      color: white; 
+      border: none; 
+      padding: 14px; 
+      border-radius: 14px; 
+      font-weight: 700; 
+      font-size: 0.95rem; 
+      cursor: pointer; 
+      margin-top: 12px; 
+      text-decoration: none; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 8px; 
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); 
+    }
 
-    .score-banner { text-align: center; padding: 16px 0 20px 0; border-bottom: 2px dashed #E2E8F0; margin-bottom: 16px; }
+    .score-banner { 
+      text-align: center; 
+      padding: 16px 0 20px 0; 
+      border-bottom: 2px dashed #E2E8F0; 
+      margin-bottom: 16px; 
+    }
+    
     .score-badge { font-size: 2.6rem; font-weight: 800; color: var(--primary); }
     .target-met { font-size: 0.9rem; font-weight: 700; color: var(--correct); margin-top: 4px; }
     .target-missed { font-size: 0.9rem; font-weight: 700; color: #D97706; margin-top: 4px; }
 
-    .review-card { background: #FFFFFF; border-left: 5px solid var(--primary); padding: 12px 14px; border-radius: 10px; margin-bottom: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); border-top: 1px solid #F1F5F9; border-right: 1px solid #F1F5F9; border-bottom: 1px solid #F1F5F9; }
+    .review-card { 
+      background: #FFFFFF; 
+      border-left: 5px solid var(--primary); 
+      padding: 12px 14px; 
+      border-radius: 10px; 
+      margin-bottom: 12px; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04); 
+      border-top: 1px solid #F1F5F9; 
+      border-right: 1px solid #F1F5F9; 
+      border-bottom: 1px solid #F1F5F9; 
+    }
+    
     .review-card.correct { border-left-color: var(--correct); }
     .review-card.incorrect { border-left-color: var(--incorrect); }
-    .sinhala-review { background: var(--sinhala-bg); color: var(--sinhala-text); padding: 8px 10px; border-radius: 8px; font-size: 0.82rem; margin-top: 8px; line-height: 1.45; }
+    .sinhala-review { 
+      background: var(--sinhala-bg); 
+      color: var(--sinhala-text); 
+      padding: 8px 10px; 
+      border-radius: 8px; 
+      font-size: 0.82rem; 
+      margin-top: 8px; 
+      line-height: 1.45; 
+    }
+    
+    .state-msg {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
 
 <div class="app-container">
-  <div class="header">
-    <div class="badge-row">
-      <div class="badge subject-tag" id="subject-tag">Subject</div>
-      <div class="badge day-tag" id="day-tag">Day 1</div>
-      <div class="badge target-tag">Target: 65%+ (13+/20)</div>
+  <div>
+    <div class="header">
+      <div class="badge-row">
+        <div class="badge subject-tag" id="subject-tag">Subject</div>
+        <div class="badge day-tag" id="day-tag">Day 1</div>
+        <div class="badge target-tag">Target: 65%+ (13+/20)</div>
+      </div>
+      <h1 id="title-text">Grade 6 Daily Booster</h1>
     </div>
-    <h1 id="title-text">Grade 6 Daily Booster</h1>
-  </div>
 
-  <div id="screen-quiz">
-    <div id="quiz-container"></div>
-    <button class="btn-submit" id="submit-btn" type="button">Submit Answers & View Review</button>
-  </div>
-
-  <div id="screen-results" style="display:none;">
-    <div class="score-banner">
-      <div style="font-size: 0.85rem; color: var(--muted); font-weight: 600;">Daily Test Score</div>
-      <div class="score-badge" id="score-text">0 / 20</div>
-      <div id="target-feedback"></div>
+    <!-- Dropdown Selector for Subject & Day -->
+    <div class="selector-bar">
+      <select class="select-dropdown" id="sel-subject">
+        <option value="science">Science</option>
+        <option value="geography">Geography</option>
+        <option value="health">Health</option>
+        <option value="civic">Civic</option>
+      </select>
+      <select class="select-dropdown" id="sel-day">
+        <option value="1">Day 1</option>
+        <option value="2">Day 2</option>
+        <option value="3">Day 3</option>
+        <option value="4">Day 4</option>
+        <option value="5">Day 5</option>
+      </select>
     </div>
-    <div id="review-container"></div>
-    <button class="btn-whatsapp" id="whatsapp-btn" type="button">
-      <span>📲</span> Send Detailed Report to Tutor via WhatsApp
-    </button>
+
+    <!-- Quiz Question Screen -->
+    <div id="screen-quiz">
+      <div id="quiz-container">
+        <div class="state-msg">Connecting to Google Sheets...</div>
+      </div>
+      <button class="btn-submit" id="submit-btn" type="button" style="display:none;">Submit Answers & View Review</button>
+    </div>
+
+    <!-- Assessment Result Screen -->
+    <div id="screen-results" style="display:none;">
+      <div class="score-banner">
+        <div style="font-size: 0.85rem; color: var(--muted); font-weight: 600;">Daily Test Score</div>
+        <div class="score-badge" id="score-text">0 / 20</div>
+        <div id="target-feedback"></div>
+      </div>
+      <div id="review-container"></div>
+      <button class="btn-whatsapp" id="whatsapp-btn" type="button">
+        <span>📲</span> Send Detailed Report to Tutor via WhatsApp
+      </button>
+    </div>
   </div>
 </div>
 
 <script>
+  // Deployed Google Apps Script Web App URL
+  var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbRD74dpAEVZnL01OacoUmw8t0emDSp17ZGT_Q30b1GOTVX-RtZhc4IJS8jpLp03QhmQ/exec";
   var TARGET_PHONE = "94701543307";
-
-  var questionBank = {
-    science: {
-      "1": {
-        title: "Science: Living World & Energy (Day 1)",
-        questions: [
-          { q: "1. What is the gas released during photosynthesis?", options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"], ans: "Oxygen", type: "mcq", sinhala: "Photosynthesis (ප්‍රභාසංස්ලේෂණය) වලදී පිටවෙන gas එක Oxygen (ඔක්සිජන්) වේ." },
-          { q: "2. Which living thing can make its own food?", options: ["Deer", "Lion", "Mango tree", "Mushroom"], ans: "Mango tree", type: "mcq", sinhala: "Autotrophic (ස්වයංපෝෂී) ශාක තමන්ගේම food සාදාගනී (Mango tree)." },
-          { q: "3. Which instrument is used to see micro-organisms in pond water?", options: ["Telescope", "Compound microscope", "Rain gauge", "Magnifying glass"], ans: "Compound microscope", type: "mcq", sinhala: "Micro-organisms (ක්ෂුද්‍ර ජීවීන්) බලන්නේ Compound microscope (සංයුක්ත අන්වීක්ෂය) එකෙනි." },
-          { q: "4. Which plant shows sleeping movements when we touch it?", options: ["Jak", "Mimosa", "Coconut", "Mango"], ans: "Mimosa", type: "mcq", sinhala: "Touch කළ විට sleeping movements (නිදි චලන) දක්වන්නේ Mimosa (නිදිකුම්බා) ය." },
-          { q: "5. Producing new baby animals or plants of the same kind is called:", options: ["Respiration", "Reproduction", "Nutrition", "Locomotion"], ans: "Reproduction", type: "mcq", sinhala: "පැටවුන් හෝ නව පැල බිහිකිරීම Reproduction (ප්‍රජනනය) වේ." },
-          { q: "6. Animals that eat only plants are called:", options: ["Carnivores", "Herbivores", "Omnivores", "Autotrophs"], ans: "Herbivores", type: "mcq", sinhala: "Plants පමණක් කන සතුන් Herbivores (ශාක භක්ෂකයින්) වේ." },
-          { q: "7. Which sea animal cannot walk or swim from place to place, but moves its body?", options: ["Fish", "Sea anemone", "Crab", "Dolphin"], ans: "Sea anemone", type: "mcq", sinhala: "Locomotion (තැනකින් තැනකට යාම) නැති නමුත් movements ඇති සතෙකි Sea anemone (මුහුදු ඇනමනී)." },
-          { q: "8. What is the main source of energy on Earth?", options: ["Fossil fuel", "Wind", "Sun", "Biomass"], ans: "Sun", type: "mcq", sinhala: "Earth එකේ main natural energy source (ශක්ති ප්‍රභවය) Sun (සූර්යයා) වේ." },
-          { q: "9. Which one is an example of biomass fuel?", options: ["Diesel", "Firewood", "Kerosene", "Coal"], ans: "Firewood", type: "mcq", sinhala: "ශාක වලින් ගන්නා Biomass (ජෛව ස්කන්ධ) ඉන්ධනයක් වන්නේ Firewood (දර) ය." },
-          { q: "10. In a food chain, green plants are called:", options: ["Primary consumer", "Secondary consumer", "Producer", "Decomposer"], ans: "Producer", type: "mcq", sinhala: "Food chain එකක ආහාර හදන green plants හඳුන්වන්නේ Producer (නිෂ්පාදකයා) නමිනි." },
-          { q: "11. If the number of leopards goes down in a jungle, what happens to deers?", options: ["Decrease", "Increase", "Disappear", "No change"], ans: "Increase", type: "mcq", sinhala: "කොටි අඩුවූ විට deers (මුවන්) ගණන Increase (වැඩිවීම) වේ." },
-          { q: "12. What state of matter has a definite volume, but no definite shape?", options: ["Solid", "Liquid", "Gas", "Vapour"], ans: "Liquid", type: "mcq", sinhala: "Definite volume (පරිමාවක්) ඇති නමුත් definite shape (හැඩයක්) නැත්තේ Liquid (ද්‍රව) වලටයි." },
-          { q: "13. What property lets us draw metals into thin wires?", options: ["Malleability", "Brittleness", "Ductility", "Hardness"], ans: "Ductility", type: "mcq", sinhala: "ලෝහ wires (කම්බි) ලෙස ඇදීමේ ගුණය Ductility (තන්‍යතාව) වේ." },
-          { q: "14. What property makes glass break into pieces easily?", options: ["Elasticity", "Brittleness", "Texture", "Hardness"], ans: "Brittleness", type: "mcq", sinhala: "පහසුවෙන් කැඩී බිඳී යන ගුණය Brittleness (භංගුරතාව) වේ." },
-          { q: "15. What instrument is used to measure rainfall in millimetres?", options: ["Thermometer", "Barometer", "Rain gauge", "Anemometer"], ans: "Rain gauge", type: "mcq", sinhala: "Rainfall (වර්ෂාපතනය) මනින්නේ Rain gauge (වර්ෂාමානය) එකෙනි." },
-          { q: "16. Which component lets current flow in only one direction?", options: ["Resistor", "Diode", "Switch", "Cell"], ans: "Diode", type: "mcq", sinhala: "Current එක එක පැත්තකට විතරක් යවන්නේ Diode (දියෝඩය) මගිනි." },
-          { q: "17. Name the gas needed by plants for photosynthesis:", ans: "Carbon dioxide", type: "text", sinhala: "Photosynthesis සඳහා plants වලට ඕන gas එක Carbon dioxide (කාබන්ඩයොක්සයිඩ්) වේ." },
-          { q: "18. Name the instrument used to find very small currents in a circuit:", ans: "Galvanometer", type: "text", sinhala: "කුඩා currents අඳුනගන්නේ Galvanometer (ගැල්වනෝමීටරය) එකෙනි." },
-          { q: "19. What key is used to group animals and plants by yes or no features?", ans: "Dichotomous key", type: "text", sinhala: "ලක්ෂණ ඇති/නැති බව බලලා වර්ග කරන්නේ Dichotomous key (දෙබෙදුම් සූචිය) එකෙනි." },
-          { q: "20. Normal human body temperature in degrees Celsius is:", ans: "37", type: "text", sinhala: "සාමාන්‍ය body temperature (දේහ උෂ්ණත්වය) 37 degrees Celsius වේ." }
-        ]
-      }
-    },
-    geography: {
-      "1": {
-        title: "Geography: Sri Lanka, Admin Units & Environment (Day 1)",
-        questions: [
-          { q: "1. What is the smallest administrative unit in Sri Lanka?", options: ["District", "Province", "Grama Niladhari Division", "Divisional Secretariat"], ans: "Grama Niladhari Division", type: "mcq", sinhala: "ලංකාවේ smallest administrative unit (කුඩාම පරිපාලන ඒකකය) Grama Niladhari Division වේ." },
-          { q: "2. How many administrative districts are there in Sri Lanka?", options: ["9", "25", "18", "12"], ans: "25", type: "mcq", sinhala: "Sri Lanka වල Provinces 9 ක් සහ Districts (දිස්ත්‍රික්ක) 25 ක් තියෙනවා." },
-          { q: "3. What is the narrow sea that separates Sri Lanka and India?", options: ["Bay of Bengal", "Palk Strait", "Arabian Sea", "Mannar Strait"], ans: "Palk Strait", type: "mcq", sinhala: "Sri Lanka සහ India වෙන් කරන මුහුදු තීරය Palk Strait (පෝක් සමුද්‍ර සන්ධිය) වේ." },
-          { q: "4. Which sea is located to the west of Sri Lanka?", options: ["Pacific Ocean", "Arabian Sea", "Bay of Bengal", "Arctic Ocean"], ans: "Arabian Sea", type: "mcq", sinhala: "ශ්‍රී ලංකාවට West (බටහිරින්) තියෙන්නේ Arabian Sea (අරාබි මුහුද) ය." },
-          { q: "5. What is the administrative capital city of Sri Lanka?", options: ["Colombo", "Kandy", "Sri Jayewardenepura Kotte", "Galle"], ans: "Sri Jayewardenepura Kotte", type: "mcq", sinhala: "ලංකාවේ administrative capital (පරිපාලන අගනුවර) Sri Jayewardenepura Kotte වේ." },
-          { q: "6. If you stand facing the morning rising sun, your right hand points to:", options: ["North", "South", "East", "West"], ans: "South", type: "mcq", sinhala: "නැගෙනහිරට මූණ දැම්මාම දකුණු අත South (දකුණ) පෙන්වයි." },
-          { q: "7. Which city has a famous natural harbour in Eastern Sri Lanka?", options: ["Galle", "Trincomalee", "Colombo", "Hambantota"], ans: "Trincomalee", type: "mcq", sinhala: "Eastern Sri Lanka වල තියෙන natural harbour (ස්වාභාවික වරාය) Trincomalee වේ." },
-          { q: "8. Dumbara area in Sri Lanka is famous for which traditional item?", options: ["Brassware", "Masks", "Dumbara mats", "Cane baskets"], ans: "Dumbara mats", type: "mcq", sinhala: "Dumbara ප්‍රදේශය famous වෙන්නේ Dumbara mats (පන් පැදුරු) වලටයි." },
-          { q: "9. Pilimathalawa area in Kandy is famous for making:", options: ["Brassware", "Masks", "Tiles", "Cloth"], ans: "Brassware", type: "mcq", sinhala: "Pilimathalawa ප්‍රසිද්ධ වෙන්නේ Brassware (පිත්තල බඩු) වලටයි." },
-          { q: "10. Atmospheric condition of a place for a short time is called:", options: ["Climate", "Weather", "Precipitation", "Monsoon"], ans: "Weather", type: "mcq", sinhala: "කෙටි වෙලාවක වායුගෝල තත්ත්වය Weather (කාලගුණය) වේ." },
-          { q: "11. Which tool shows the direction the wind is blowing?", options: ["Anemometer", "Wind vane", "Hygrometer", "Thermometer"], ans: "Wind vane", type: "mcq", sinhala: "Wind direction (සුළඟේ දිශාව) බලන්නේ Wind vane (සුළං දිශා දර්ශකය) එකෙනි." },
-          { q: "12. What bird helps farmers by eating snails in crops?", options: ["Crow", "Crow-pheasant", "Parrot", "Bat"], ans: "Crow-pheasant", type: "mcq", sinhala: "Snails (ගොළුබෙල්ලන්) කන්නේ Crow-pheasant (ඇටි-කුකුළා) ය." },
-          { q: "13. Which energy source is clean and does not harm the environment?", options: ["Coal", "Petroleum", "Solar cells", "Diesel"], ans: "Solar cells", type: "mcq", sinhala: "පරිසරයට හානි නැති energy එකක් තමයි Solar cells (සූර්ය කෝෂ)." },
-          { q: "14. What is the code number for the Southern Expressway?", options: ["E01", "A01", "B02", "E04"], ans: "E01", type: "mcq", sinhala: "Southern Expressway (දකුණු අධිවේගී මාර්ගය) හඳුන්වන්නේ E01 නමිනි." },
-          { q: "15. Which northern area is famous for growing grapes, onions and chillies?", options: ["Nuwara Eliya", "Jaffna", "Hambantota", "Ratnapura"], ans: "Jaffna", type: "mcq", sinhala: "Grapes සහ onions වගාවට famous වෙන්නේ Jaffna (යාපනය) ය." },
-          { q: "16. What is the largest island in the world?", options: ["Madagascar", "Sicily", "Greenland", "Taiwan"], ans: "Greenland", type: "mcq", sinhala: "ලෝකයේ largest island (විශාලතම දූපත) Greenland වේ." },
-          { q: "17. Name the commercial capital city of Sri Lanka:", ans: "Colombo", type: "text", sinhala: "ලංකාවේ commercial capital (වාණිජ අගනුවර) Colombo (කොළඹ) වේ." },
-          { q: "18. Name a migratory bird that visits Sri Lanka during cold months:", ans: "Indian Pitta", type: "text", sinhala: "ශීත කාලයට එන Migratory bird (සංචාරක පක්ෂියෙක්) තමයි Indian Pitta (අවිච්චියා)." },
-          { q: "19. What line is located 23.5 degrees North of the Equator?", ans: "Tropic of Cancer", type: "text", sinhala: "සමකයට 23.5 North ඇති line එක Tropic of Cancer (කර්කටක නිවර්තනය) වේ." },
-          { q: "20. What is the unit used to measure wind speed?", ans: "Kilometres per hour", type: "text", sinhala: "Wind speed (සුළගේ වේගය) මනින්නේ Kilometres per hour (පැයට කිලෝමීටර්) වලිනි." }
-        ]
-      }
-    },
-    health: {
-      "1": {
-        title: "Health & Physical Education: Fitness & Diet (Day 1)",
-        questions: [
-          { q: "1. Health means physical, mental, social, and ______ well-being.", options: ["Financial", "Spiritual", "Educational", "Athletic"], ans: "Spiritual", type: "mcq", sinhala: "Health (සෞඛ්‍යය) කියන්නේ physical, mental, social සහ Spiritual (ආධ්‍යාත්මික) සුවතාවයි." },
-          { q: "2. Which nutrient gives the main energy for our body?", options: ["Vitamins", "Proteins", "Carbohydrates", "Minerals"], ans: "Carbohydrates", type: "mcq", sinhala: "අපේ ඇඟට main energy (ශක්තිය) දෙන්නේ Carbohydrates (කාබෝහයිඩ්‍රේට) ය." },
-          { q: "3. What illness is caused when a child lacks Vitamin A?", options: ["Goitre", "Scurvy", "Night blindness", "Rickets"], ans: "Night blindness", type: "mcq", sinhala: "Vitamin A අඩුවූ විට Night blindness (මාලන්ධතාව / රෑට නොපෙනීම) හැදේ." },
-          { q: "4. How many hours should a Grade 6 child sleep every day?", options: ["4 - 5 hours", "6 - 7 hours", "8 - 10 hours", "12 - 14 hours"], ans: "8 - 10 hours", type: "mcq", sinhala: "Grade 6 ළමයෙකුට දිනකට 8 - 10 hours sleep (නින්දක්) ඕන වේ." },
-          { q: "5. When walking properly, which part of the foot touches the ground first?", options: ["Toe", "Ball of foot", "Heel", "Arch"], ans: "Heel", type: "mcq", sinhala: "හරි විදිහට ඇවිදිද්දී මුලින්ම බිම වදින්නේ Heel (විලුඹ) වේ." },
-          { q: "6. A school bag should not be heavier than what percentage of body weight?", options: ["10%", "25%", "35%", "50%"], ans: "10%", type: "mcq", sinhala: "School bag එකේ බර body weight එකෙන් 10% ට වඩා අඩු විය යුතුය." },
-          { q: "7. How many permanent teeth are in an adult mouth?", options: ["20", "28", "32", "30"], ans: "32", type: "mcq", sinhala: "කටේ තියෙන Permanent teeth (ස්ථිර දත්) ගණන 32 කි." },
-          { q: "8. Which sense organ controls body heat and sweats?", options: ["Lungs", "Kidneys", "Skin", "Liver"], ans: "Skin", type: "mcq", sinhala: "දහඩිය දමන්නේ සහ උෂ්ණත්වය පාලනය කරන්නේ Skin (සම) මගිනි." },
-          { q: "9. Running for a long time without getting tired is called:", options: ["Agility", "Speed", "Endurance", "Flexibility"], ans: "Endurance", type: "mcq", sinhala: "මහන්සි නොවී දිගු වෙලාවක් දුවන්න තියෙන fitness එක Endurance (දරාගැනීම) වේ." },
-          { q: "10. In a healthy food plate, what portion should be rice and grains?", options: ["1/4", "1/2", "3/4", "1/8"], ans: "1/2", type: "mcq", sinhala: "කෑම පිඟානෙන් 1/2 ක් Starchy food (බත්, අල, පාන්) තිබිය යුතුය." },
-          { q: "11. Which disease does not spread from one person to another?", options: ["Common cold", "Tuberculosis", "Diabetes", "Typhoid"], ans: "Diabetes", type: "mcq", sinhala: "අනුන්ගෙන් බෝ නොවෙන non-communicable disease එකකි Diabetes (දියවැඩියාව)." },
-          { q: "12. Dengue fever spreads through:", options: ["Housefly", "Mosquito bite", "Dirty water", "Cough droplets"], ans: "Mosquito bite", type: "mcq", sinhala: "Dengue බෝවෙන්නේ Mosquito bite (මදුරු දෂ්ටනය) මගිනි." },
-          { q: "13. In which position should students stand when singing the National Anthem?", options: ["Stand at ease", "Stand ease", "Stand at attention", "Loose posture"], ans: "Stand at attention", type: "mcq", sinhala: "ජාතික ගීය ගයද්දී Stand at attention (සීරුවෙන් සිටීම) ඉරියව්ව ගත යුතුය." },
-          { q: "14. How many players play on the court in one netball team?", options: ["5", "6", "7", "11"], ans: "7", type: "mcq", sinhala: "Netball පිටියේ එක් පිළකට players (ක්‍රීඩිකාවන්) 7 දෙනෙකි." },
-          { q: "15. What is the national sport of Sri Lanka?", options: ["Cricket", "Volleyball", "Elle", "Football"], ans: "Volleyball", type: "mcq", sinhala: "ලංකාවේ national sport (ජාතික ක්‍රීඩාව) Volleyball වේ." },
-          { q: "16. In the BMI chart, what colour shows that a child is overweight?", options: ["Orange", "Green", "Light purple", "Dark purple"], ans: "Light purple", type: "mcq", sinhala: "BMI chart එකේ Overweight (වැඩි බර) පෙන්වන්නේ Light purple පාටිනි." },
-          { q: "17. What mineral deficiency causes anaemia (lack of blood)?", ans: "Iron", type: "text", sinhala: "Anaemia (ලේ අඩුකම) හැදෙන්නේ Iron (යකඩ) ඌනතාවය නිසාය." },
-          { q: "18. Healthy waist circumference divided by height should be less than:", ans: "0.5", type: "text", sinhala: "ඉණ වටප්‍රමාණය උසින් බෙදූ අගය 0.5 ට අඩු විය යුතුය." },
-          { q: "19. The skill to feel and care about what others feel is called:", ans: "Empathy", type: "text", sinhala: "අනුන්ගේ දුක දැනෙන ගුණය Empathy (සහකම්පනය) වේ." },
-          { q: "20. The immediate medical care given before taking a patient to hospital is:", ans: "First aid", type: "text", sinhala: "හදිසි අනතුරකදී මුලින්ම දෙන සාත්තුව First aid (ප්‍රථමාධාර) වේ." }
-        ]
-      }
-    },
-    civic: {
-      "1": {
-        title: "Civic Education: School & Community (Day 1)",
-        questions: [
-          { q: "1. Who is the head and leader of all school activities?", options: ["Sectional Head", "Class Monitor", "Principal", "Grama Niladhari"], ans: "Principal", type: "mcq", sinhala: "පාසලේ main leader වන්නේ Principal (විදුහල්පති) වේ." },
-          { q: "2. Getting free school books and uniforms from the government is a student's:", options: ["Duty", "Right", "Tradition", "Penalty"], ans: "Right", type: "mcq", sinhala: "නොමිලේ පොත් සහ රෙදි ලැබීම student කෙනෙකුගේ Right (අයිතිවාසිකමකි)." },
-          { q: "3. Protecting and taking care of school desks and walls is a student's:", options: ["Right", "Duty", "Option", "Favor"], ans: "Duty", type: "mcq", sinhala: "පාසල් බඩු ආරක්ෂා කිරීම ශිෂ්‍ය Duty (යුතුකමකි)." },
-          { q: "4. Who is known as the Father of Free Education in Sri Lanka?", options: ["Senaka Bibile", "C.W.W. Kannangara", "Ananda Samarakoon", "Sekara Vidanarachchi"], ans: "C.W.W. Kannangara", type: "mcq", sinhala: "ලංකාවේ Father of Free Education වන්නේ Dr. C.W.W. Kannangara මහතාය." },
-          { q: "5. Who wrote the national anthem of Sri Lanka?", options: ["Mahagama Sekara", "W.D. Amaradeva", "Ananda Samarakoon", "C.S. Jayasinha"], ans: "Ananda Samarakoon", type: "mcq", sinhala: "ජාතික ගීය ලිව්වේ Ananda Samarakoon මහතාය." },
-          { q: "6. Which officer in the village gives proof of where you live?", options: ["Divisional Secretary", "Grama Niladhari", "Principal", "Mayor"], ans: "Grama Niladhari", type: "mcq", sinhala: "ගමේ පදිංචිය තහවුරු කරන්නේ Grama Niladhari (ග්‍රාම නිලධාරී) ය." },
-          { q: "7. Who is the head of a Municipal Council in big cities like Colombo?", options: ["Chairman", "Mayor", "District Secretary", "Governor"], ans: "Mayor", type: "mcq", sinhala: "නගර සභාවේ head Mayor (නගරාධිපති) වේ." },
-          { q: "8. What road lines show where children and people can walk across safely?", options: ["Yellow line", "Speed bump", "Zebra crossing", "White arrow"], ans: "Zebra crossing", type: "mcq", sinhala: "පාර මාරු වෙන්න තියෙන්නේ Zebra crossing (පදික මාරුව) ය." },
-          { q: "9. When walking on a road with no pavement, you should walk on the:", options: ["Left hand side", "Right hand side", "Middle", "Any side"], ans: "Right hand side", type: "mcq", sinhala: "අඩිපාරවල් නැති තැන්වල පාරේ Right hand side (දකුණු පැත්තෙන්) යා යුතුය." },
-          { q: "10. Which of the following is public property?", options: ["Private car", "School building", "Personal bicycle", "Home garden"], ans: "School building", type: "mcq", sinhala: "හැමෝටම අයිති Public property (පොදු දේපළක්) වන්නේ School building එකයි." },
-          { q: "11. Listening carefully and politely to understand what someone says is called:", options: ["Hearing", "Active listening", "Casual talk", "Idle talk"], ans: "Active listening", type: "mcq", sinhala: "හොඳින් අහගෙන සිටීම Active listening (සක්‍රීය සවන්දීම) වේ." },
-          { q: "12. Professor Senaka Bibile is famous for starting low-price medicines at:", options: ["Free schools", "State Osusala", "Farms", "Post office"], ans: "State Osusala", type: "mcq", sinhala: "අඩු මිලට බෙහෙත් දෙන්න State Osusala (රාජ්‍ය ඔසුසල) හැදුවේ Prof. Senaka Bibile ය." },
-          { q: "13. What school committee brings parents and teachers together to help the school?", options: ["Prefects", "School Development Committee", "Scouts", "Sports club"], ans: "School Development Committee", type: "mcq", sinhala: "පාසල දියුණු කරන කමිටුව School Development Committee (පාසල් සංවර්ධන සමිතිය) වේ." },
-          { q: "14. Looking into the eyes of a teacher while speaking politely shows:", options: ["Anger", "Good manners and respect", "Disobedience", "Fear"], ans: "Good manners and respect", type: "mcq", sinhala: "ගුරුවරුන්ට ගෞරවයෙන් කතා කිරීම Good manners (යහපත් ගුණධර්මයකි)." },
-          { q: "15. What ancient water canal takes water from Kala Wewa to Tissa Wewa?", options: ["Minipe Ela", "Jaya Ganga", "Kalinga Ela", "Yoda Ela"], ans: "Jaya Ganga", type: "mcq", sinhala: "කලාවැවෙන් තිසාවැවට වතුර ගෙනියන්නේ Jaya Ganga (ජය ගඟ) ය." },
-          { q: "16. Which tall standing Buddha statue is located near Kala Wewa?", options: ["Gal Viharaya", "Avukana statue", "Buduruvagala", "Maligawila"], ans: "Avukana statue", type: "mcq", sinhala: "කලාවැව ළඟ තියෙන උස පිළිමය Avukana statue (අවුකන පිළිමය) වේ." },
-          { q: "17. What paper shows your correct birth date and full name?", ans: "Birth certificate", type: "text", sinhala: "නම සහ උපන්දිනය තියෙන්නේ Birth certificate (උප්පැන්න සහතිකයේ) ය." },
-          { q: "18. What badge on your uniform shows your school identity?", ans: "School crest", type: "text", sinhala: "පාසලේ නම සහ අනන්‍යතාව පෙන්වන්නේ School crest (පාසල් ලාංඡනය) මගිනි." },
-          { q: "19. The leader of an Urban Council is called the:", ans: "Chairman", type: "text", sinhala: "Urban Council එකේ නායකයා Chairman (සභාපති) වේ." },
-          { q: "20. The smallest village area governed by an officer is the:", ans: "Grama Niladhari Division", type: "text", sinhala: "කුඩාම ග්‍රාමීය කොට්ඨාසය Grama Niladhari Division (ග්‍රාම නිලධාරී වසම) වේ." }
-        ]
-      }
-    }
-  };
-
-  function parseQueryParams() {
-    var query = window.location.search.substring(1);
-    var result = { subject: null, day: '1' };
-    if (!query) return result;
-
-    var pairs = query.split('&');
-    for (var i = 0; i < pairs.length; i++) {
-      var pair = pairs[i].split('=');
-      var key = decodeURIComponent(pair[0]).toLowerCase().trim();
-      var val = pair[1] ? decodeURIComponent(pair[1]).trim() : '';
-
-      if (['science', 'sci', 'geography', 'geo', 'health', 'hpe', 'hp', 'civic', 'civ', 'civics'].indexOf(key) !== -1) {
-        result.subject = key;
-      }
-      if (key === 's' || key === 'subject') {
-        result.subject = val.toLowerCase();
-      }
-      if (key === 'd' || key === 'day') {
-        result.day = val || '1';
-      }
-    }
-    return result;
-  }
 
   var currentSubject = 'science';
   var currentDay = '1';
   var userAnswers = {};
   var currentQuestions = [];
 
-  function initApp() {
-    var params = parseQueryParams();
-    var rawSub = (params.subject || 'science').toLowerCase().trim();
-    var rawDay = (params.day || '1').trim();
-
-    if (rawSub === 'sci') rawSub = 'science';
-    if (rawSub === 'geo') rawSub = 'geography';
-    if (rawSub === 'hpe' || rawSub === 'hp') rawSub = 'health';
-    if (rawSub === 'civ' || rawSub === 'civics') rawSub = 'civic';
-
-    currentSubject = questionBank[rawSub] ? rawSub : 'science';
-    var subData = questionBank[currentSubject];
-    currentDay = (subData && subData[rawDay]) ? rawDay : '1';
-
-    var quizData = subData[currentDay];
-    document.getElementById('subject-tag').innerText = currentSubject.toUpperCase();
-    document.getElementById('day-tag').innerText = 'DAY ' + currentDay;
-    document.getElementById('title-text').innerText = quizData.title;
-    
-    currentQuestions = quizData.questions;
-    renderQuiz();
-
-    document.getElementById('submit-btn').addEventListener('click', submitAnswers);
-    document.getElementById('whatsapp-btn').addEventListener('click', shareWhatsAppDirect);
-
+  function fetchQuestions() {
     var quizContainer = document.getElementById('quiz-container');
-    quizContainer.addEventListener('click', function(e) {
-      var btn = e.target.closest('.option-btn');
-      if (!btn) return;
-      var qIdx = parseInt(btn.getAttribute('data-qidx'), 10);
-      var val = btn.getAttribute('data-val');
-      
-      userAnswers[qIdx] = val;
+    var submitBtn = document.getElementById('submit-btn');
+    var screenResults = document.getElementById('screen-results');
+    var screenQuiz = document.getElementById('screen-quiz');
+    
+    screenResults.style.display = 'none';
+    screenQuiz.style.display = 'block';
+    quizContainer.innerHTML = '<div class="state-msg">Fetching questions from Google Sheets...</div>';
+    submitBtn.style.display = 'none';
 
-      var group = btn.closest('.options-group');
-      var allBtns = group.querySelectorAll('.option-btn');
-      allBtns.forEach(function(b) { b.classList.remove('selected'); });
-      btn.classList.add('selected');
-    });
+    var fetchUrl = APPS_SCRIPT_URL + '?subject=' + encodeURIComponent(currentSubject) + '&day=' + encodeURIComponent(currentDay);
 
-    quizContainer.addEventListener('input', function(e) {
-      if (e.target.classList.contains('text-input')) {
-        var qIdx = parseInt(e.target.getAttribute('data-qidx'), 10);
-        userAnswers[qIdx] = e.target.value.trim();
-      }
-    });
+    fetch(fetchUrl)
+      .then(function(res) { 
+        return res.json(); 
+      })
+      .then(function(data) {
+        if (data.error) throw new Error(data.error);
+
+        document.getElementById('subject-tag').innerText = currentSubject.toUpperCase();
+        document.getElementById('day-tag').innerText = 'DAY ' + currentDay;
+        document.getElementById('title-text').innerText = data.title || (currentSubject.toUpperCase() + ' (Day ' + currentDay + ')');
+        
+        currentQuestions = data.questions || [];
+        userAnswers = {};
+
+        if (currentQuestions.length === 0) {
+          quizContainer.innerHTML = '<div class="state-msg">No questions found for ' + currentSubject.toUpperCase() + ' Day ' + currentDay + ' in the spreadsheet.</div>';
+          return;
+        }
+
+        renderQuiz();
+        submitBtn.style.display = 'block';
+      })
+      .catch(function(err) {
+        quizContainer.innerHTML = '<div class="state-msg" style="color:var(--incorrect);">⚠️ ' + err.message + '</div>';
+      });
   }
 
   function renderQuiz() {
@@ -353,7 +408,7 @@
 
       var sinhalaBox = document.createElement('div');
       sinhalaBox.className = 'sinhala-review';
-      sinhalaBox.innerHTML = '💡 <b>Study Tip:</b> ' + q.sinhala;
+      sinhalaBox.innerHTML = '💡 <b>Study Tip:</b> ' + (q.sinhala || 'No tip provided.');
       card.appendChild(sinhalaBox);
 
       reviewContainer.appendChild(card);
@@ -408,11 +463,44 @@
     window.location.href = waUrl;
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initApp);
-  } else {
-    initApp();
+  function setupEventListeners() {
+    document.getElementById('sel-subject').addEventListener('change', function(e) {
+      currentSubject = e.target.value;
+      fetchQuestions();
+    });
+
+    document.getElementById('sel-day').addEventListener('change', function(e) {
+      currentDay = e.target.value;
+      fetchQuestions();
+    });
+
+    var quizContainer = document.getElementById('quiz-container');
+    quizContainer.addEventListener('click', function(e) {
+      var btn = e.target.closest('.option-btn');
+      if (!btn) return;
+      var qIdx = parseInt(btn.getAttribute('data-qidx'), 10);
+      userAnswers[qIdx] = btn.getAttribute('data-val');
+
+      var group = btn.closest('.options-group');
+      group.querySelectorAll('.option-btn').forEach(function(b) { b.classList.remove('selected'); });
+      btn.classList.add('selected');
+    });
+
+    quizContainer.addEventListener('input', function(e) {
+      if (e.target.classList.contains('text-input')) {
+        var qIdx = parseInt(e.target.getAttribute('data-qidx'), 10);
+        userAnswers[qIdx] = e.target.value.trim();
+      }
+    });
+
+    document.getElementById('submit-btn').addEventListener('click', submitAnswers);
+    document.getElementById('whatsapp-btn').addEventListener('click', shareWhatsAppDirect);
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    setupEventListeners();
+    fetchQuestions();
+  });
 </script>
 </body>
 </html>

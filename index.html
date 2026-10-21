@@ -57,12 +57,11 @@
       display: flex; 
       gap: 6px; 
       margin-bottom: 8px; 
-      flex-wrap: wrap; 
     }
     
     .badge { 
       display: inline-block; 
-      padding: 4px 10px; 
+      padding: 4px 12px; 
       border-radius: 16px; 
       font-size: 0.75rem; 
       font-weight: 700; 
@@ -70,7 +69,6 @@
     }
     
     .subject-tag { background: var(--primary-light); color: var(--primary); }
-    .day-tag { background: #FEF3C7; color: #92400E; }
     .target-tag { background: #DCFCE7; color: #166534; }
     
     .header h1 { 
@@ -104,7 +102,7 @@
       line-height: 1.45; 
     }
 
-    /* Large tap targets for fingers */
+    /* Large touch targets */
     .option-btn { 
       width: 100%; 
       text-align: left; 
@@ -224,7 +222,6 @@
     <div class="header">
       <div class="badge-row">
         <div class="badge subject-tag" id="subject-tag">SUBJECT</div>
-        <div class="badge day-tag" id="day-tag">DAY 1</div>
         <div class="badge target-tag">Target: 65%+</div>
       </div>
       <h1 id="title-text">Daily Practice Booster</h1>
@@ -257,15 +254,14 @@
 </div>
 
 <script>
-  // Backend Google Apps Script Web App
+  // Your Google Apps Script Web App URL
   var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbRD74dpAEVZnL01OacoUmw8t0emDSp17ZGT_Q30b1GOTVX-RtZhc4IJS8jpLp03QhmQ/exec";
   var TARGET_PHONE = "94701543307";
 
-  // Parse simple URL parameters like ?s=science&d=1 or ?subject=science&day=1
-  function getUrlParams() {
+  // Automatically extract subject from domain parameter (?s=science or ?subject=science)
+  function getSubject() {
     var query = window.location.search.substring(1);
-    var res = { subject: 'science', day: '1' };
-    if (!query) return res;
+    if (!query) return 'science';
 
     var pairs = query.split('&');
     for (var i = 0; i < pairs.length; i++) {
@@ -273,15 +269,13 @@
       var key = decodeURIComponent(p[0]).toLowerCase().trim();
       var val = p[1] ? decodeURIComponent(p[1]).trim().toLowerCase() : '';
 
-      if (key === 's' || key === 'sub' || key === 'subject') res.subject = val;
-      if (key === 'd' || key === 'day') res.day = val;
+      if (key === 's' || key === 'sub' || key === 'subject') return val;
+      if (['science', 'geography', 'health', 'civic'].indexOf(key) !== -1) return key;
     }
-    return res;
+    return 'science';
   }
 
-  var params = getUrlParams();
-  var currentSubject = params.subject;
-  var currentDay = params.day;
+  var currentSubject = getSubject();
   var userAnswers = {};
   var currentQuestions = [];
 
@@ -289,7 +283,7 @@
     var quizContainer = document.getElementById('quiz-container');
     var submitBtn = document.getElementById('submit-btn');
 
-    var fetchUrl = APPS_SCRIPT_URL + '?subject=' + encodeURIComponent(currentSubject) + '&day=' + encodeURIComponent(currentDay);
+    var fetchUrl = APPS_SCRIPT_URL + '?s=' + encodeURIComponent(currentSubject);
 
     fetch(fetchUrl)
       .then(function(res) { return res.json(); })
@@ -297,14 +291,13 @@
         if (data.error) throw new Error(data.error);
 
         document.getElementById('subject-tag').innerText = currentSubject.toUpperCase();
-        document.getElementById('day-tag').innerText = 'DAY ' + currentDay;
-        document.getElementById('title-text').innerText = data.title || (currentSubject.toUpperCase() + ' (Day ' + currentDay + ')');
+        document.getElementById('title-text').innerText = data.title || (currentSubject.toUpperCase() + ' Practice');
         
         currentQuestions = data.questions || [];
         userAnswers = {};
 
         if (currentQuestions.length === 0) {
-          quizContainer.innerHTML = '<div class="loading-msg">No questions found for today! Check back soon.</div>';
+          quizContainer.innerHTML = '<div class="loading-msg">No questions uploaded for today yet! Check back soon.</div>';
           return;
         }
 
@@ -440,7 +433,7 @@
 
     var percentage = Math.round((correctCount / currentQuestions.length) * 100);
     var text = "📊 *Daily Practice Assessment Report*\n\n" +
-               "📌 *Subject:* " + currentSubject.toUpperCase() + " (Day " + currentDay + ")\n" +
+               "📌 *Subject:* " + currentSubject.toUpperCase() + "\n" +
                "🎯 *Score:* " + correctCount + "/" + currentQuestions.length + " (" + percentage + "%)\n" +
                "🏆 *Target 65%+ Status:* " + (percentage >= 65 ? "MET ✅" : "NEEDS PRACTICE ⚠️") + "\n\n";
 

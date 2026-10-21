@@ -435,7 +435,7 @@
     var text = "📊 *Daily Practice Assessment Report*\n\n" +
                "📌 *Subject:* " + currentSubject.toUpperCase() + "\n" +
                "🎯 *Score:* " + correctCount + "/" + currentQuestions.length + " (" + percentage + "%)\n" +
-               "🏆 *Target 65%+ Status:* " + (percentage >= 65 ? "MET ✅" : "NEEDS PRACTICE ⚠️") + "\n\n";
+               "🏆 *Target 65 %+ Status:* " + (percentage >= 65 ? "MET ✅" : "NEEDS PRACTICE ⚠️") + "\n\n";
 
     if (wrongReport.length > 0) {
       text += "📝 *Mistakes & Insights:*\n" + wrongReport.join("\n\n") + "\n\n";

@@ -102,7 +102,7 @@
       line-height: 1.45; 
     }
 
-    /* Large touch targets */
+    /* Large touch-friendly options */
     .option-btn { 
       width: 100%; 
       text-align: left; 
@@ -139,9 +139,10 @@
     
     .text-input:focus { border-color: var(--primary); }
 
-    .btn-submit { 
+    /* Single combined Action Button */
+    .btn-submit-send { 
       width: 100%; 
-      background: var(--primary); 
+      background: #25D366; 
       color: white; 
       border: none; 
       padding: 16px; 
@@ -150,18 +151,22 @@
       font-size: 1.05rem; 
       cursor: pointer; 
       margin-top: 10px; 
-      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); 
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35); 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    
-    .btn-whatsapp { 
+
+    .btn-resend { 
       width: 100%; 
       background: #25D366; 
       color: white; 
       border: none; 
-      padding: 15px; 
+      padding: 14px; 
       border-radius: 14px; 
       font-weight: 700; 
-      font-size: 1rem; 
+      font-size: 0.95rem; 
       cursor: pointer; 
       margin-top: 14px; 
       display: flex; 
@@ -232,7 +237,9 @@
       <div id="quiz-container">
         <div class="loading-msg">⏳ Loading your questions...</div>
       </div>
-      <button class="btn-submit" id="submit-btn" type="button" style="display:none;">Done! Submit Answers</button>
+      <button class="btn-submit-send" id="submit-btn" type="button" style="display:none;">
+        <span>📲</span> Done! Submit & Send to Tutor
+      </button>
     </div>
 
     <!-- Results & Review Screen -->
@@ -243,8 +250,8 @@
         <div id="target-feedback"></div>
       </div>
 
-      <button class="btn-whatsapp" id="whatsapp-btn-top" type="button">
-        <span>📲</span> Send Results to Tutor via WhatsApp
+      <button class="btn-resend" id="whatsapp-btn-resend" type="button">
+        <span>📲</span> Re-send Score via WhatsApp
       </button>
 
       <div style="margin: 20px 0 10px 0; font-weight: 700; font-size: 0.95rem; color: var(--muted);">Review & Study Tips:</div>
@@ -254,11 +261,10 @@
 </div>
 
 <script>
-  // Your Google Apps Script Web App URL
+  // Google Apps Script Web App Endpoint
   var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbRD74dpAEVZnL01OacoUmw8t0emDSp17ZGT_Q30b1GOTVX-RtZhc4IJS8jpLp03QhmQ/exec";
   var TARGET_PHONE = "94701543307";
 
-  // Automatically extract subject from domain parameter (?s=science or ?subject=science)
   function getSubject() {
     var query = window.location.search.substring(1);
     if (!query) return 'science';
@@ -278,6 +284,7 @@
   var currentSubject = getSubject();
   var userAnswers = {};
   var currentQuestions = [];
+  var lastGeneratedWhatsappUrl = "";
 
   function loadDailyQuiz() {
     var quizContainer = document.getElementById('quiz-container');
@@ -302,7 +309,7 @@
         }
 
         renderQuestions();
-        submitBtn.style.display = 'block';
+        submitBtn.style.display = 'flex';
       })
       .catch(function(err) {
         quizContainer.innerHTML = '<div class="loading-msg" style="color:var(--incorrect);">⚠️ Could not load quiz.<br><small>' + err.message + '</small></div>';
@@ -358,15 +365,22 @@
     });
   }
 
-  function submitAnswers() {
+  // Combined action: Submit + Evaluate + Show Review + Automatically Open WhatsApp
+  function submitAndSend() {
     var score = 0;
+    var wrongReport = [];
     var reviewContainer = document.getElementById('review-container');
     reviewContainer.innerHTML = '';
 
     currentQuestions.forEach(function(q, idx) {
       var uAns = userAnswers[idx] || 'Not answered';
       var isCorrect = uAns.toString().trim().toLowerCase() === q.ans.toString().trim().toLowerCase();
-      if (isCorrect) score++;
+      
+      if (isCorrect) {
+        score++;
+      } else {
+        wrongReport.push("Q" + (idx + 1) + ": " + q.q + "\n  ❌ Her Answer: " + uAns + "\n  ✅ Correct: " + q.ans);
+      }
 
       var card = document.createElement('div');
       card.className = 'review-card ' + (isCorrect ? 'correct' : 'incorrect');
@@ -412,29 +426,15 @@
       feedbackEl.innerText = '📖 Good try! Read the yellow study tips below to practice!';
     }
 
+    // Switch screen to show reviews behind WhatsApp
     document.getElementById('screen-quiz').style.display = 'none';
     document.getElementById('screen-results').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
 
-  function shareWhatsAppDirect() {
-    var wrongReport = [];
-    var correctCount = 0;
-
-    currentQuestions.forEach(function(q, idx) {
-      var uAns = userAnswers[idx] || 'Not answered';
-      var isCorrect = uAns.toString().trim().toLowerCase() === q.ans.toString().trim().toLowerCase();
-      if (isCorrect) {
-        correctCount++;
-      } else {
-        wrongReport.push("Q" + (idx + 1) + ": " + q.q + "\n  ❌ Her Answer: " + uAns + "\n  ✅ Correct: " + q.ans);
-      }
-    });
-
-    var percentage = Math.round((correctCount / currentQuestions.length) * 100);
+    // Prepare WhatsApp Message
     var text = "📊 *Daily Practice Assessment Report*\n\n" +
                "📌 *Subject:* " + currentSubject.toUpperCase() + "\n" +
-               "🎯 *Score:* " + correctCount + "/" + currentQuestions.length + " (" + percentage + "%)\n" +
+               "🎯 *Score:* " + score + "/" + currentQuestions.length + " (" + percentage + "%)\n" +
                "🏆 *Target 65%+ Status:* " + (percentage >= 65 ? "MET ✅" : "NEEDS PRACTICE ⚠️") + "\n\n";
 
     if (wrongReport.length > 0) {
@@ -445,14 +445,22 @@
 
     text += "She has reviewed the English terminology and Sinhala notes.";
 
-    var waUrl = "https://api.whatsapp.com/send?phone=" + TARGET_PHONE + "&text=" + encodeURIComponent(text);
-    window.location.href = waUrl;
+    lastGeneratedWhatsappUrl = "https://api.whatsapp.com/send?phone=" + TARGET_PHONE + "&text=" + encodeURIComponent(text);
+
+    // Automatically trigger WhatsApp redirect
+    window.location.href = lastGeneratedWhatsappUrl;
+  }
+
+  function resendWhatsApp() {
+    if (lastGeneratedWhatsappUrl) {
+      window.location.href = lastGeneratedWhatsappUrl;
+    }
   }
 
   document.addEventListener('DOMContentLoaded', function() {
     loadDailyQuiz();
-    document.getElementById('submit-btn').addEventListener('click', submitAnswers);
-    document.getElementById('whatsapp-btn-top').addEventListener('click', shareWhatsAppDirect);
+    document.getElementById('submit-btn').addEventListener('click', submitAndSend);
+    document.getElementById('whatsapp-btn-resend').addEventListener('click', resendWhatsApp);
   });
 </script>
 </body>

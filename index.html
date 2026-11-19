@@ -1,3 +1,8 @@
+
+
+
+HTML icon
+index
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,6 +62,7 @@
       display: flex; 
       gap: 6px; 
       margin-bottom: 8px; 
+      align-items: center;
     }
     
     .badge { 
@@ -70,6 +76,23 @@
     
     .subject-tag { background: var(--primary-light); color: var(--primary); }
     .target-tag { background: #DCFCE7; color: #166534; }
+
+    /* Subtle discreet tutor trigger icon */
+    .tutor-trigger {
+      margin-left: auto;
+      background: transparent;
+      border: none;
+      color: #CBD5E1;
+      font-size: 0.9rem;
+      padding: 4px 6px;
+      cursor: pointer;
+      border-radius: 8px;
+      line-height: 1;
+      transition: color 0.15s ease;
+    }
+    .tutor-trigger:hover {
+      color: #94A3B8;
+    }
     
     .header h1 { 
       font-size: 1.15rem; 
@@ -213,6 +236,164 @@
       color: var(--muted);
       font-weight: 600;
     }
+
+    /* Tutor Passcode Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 1000;
+    }
+    .modal-box {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 340px;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.18);
+      text-align: center;
+    }
+    .modal-box h2 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .modal-box p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .pin-input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.2rem;
+      text-align: center;
+      letter-spacing: 6px;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      outline: none;
+    }
+    .pin-input:focus { border-color: var(--primary); }
+    .modal-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-modal {
+      flex: 1;
+      padding: 11px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-cancel { background: #F1F5F9; color: var(--muted); }
+    .btn-unlock { background: var(--primary); color: #FFFFFF; }
+
+    /* Tutor Dashboard View */
+    .tutor-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid #F1F5F9;
+    }
+    .tutor-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .btn-exit-tutor {
+      background: #FEE2E2;
+      color: #B91C1C;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .subject-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .subject-box {
+      background: #F8FAFC;
+      border: 2px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .subject-box.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .subject-box-name {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--text);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .subject-box-count {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .q-num-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin-bottom: 16px;
+      max-height: 220px;
+      overflow-y: auto;
+      padding: 4px;
+    }
+    .q-num-btn {
+      background: #FFFFFF;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 8px 4px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .q-num-btn.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+    .tutor-detail-card {
+      background: #F8FAFC;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .tutor-opt-item {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 0.86rem;
+      margin-bottom: 6px;
+    }
+    .tutor-opt-item.is-ans {
+      background: #DCFCE7;
+      border-color: #10B981;
+      color: #065F46;
+      font-weight: 700;
+    }
   </style>
 </head>
 <body>
@@ -223,6 +404,7 @@
       <div class="badge-row">
         <div class="badge subject-tag" id="subject-tag">SUBJECT</div>
         <div class="badge target-tag">Target: 65%+</div>
+        <button type="button" class="tutor-trigger" id="tutor-trigger-btn" aria-label="Tutor Panel">⚙</button>
       </div>
       <h1 id="title-text">Daily Practice Booster</h1>
     </div>
@@ -250,6 +432,54 @@
       <div style="margin: 20px 0 10px 0; font-weight: 700; font-size: 0.95rem; color: var(--muted);">Review & Study Tips:</div>
       <div id="review-container"></div>
     </div>
+
+    <!-- Tutor Bank Explorer Screen -->
+    <div id="screen-tutor" style="display:none;">
+      <div class="tutor-bar">
+        <div class="tutor-title">📚 Tutor Question Bank</div>
+        <button type="button" class="btn-exit-tutor" id="exit-tutor-btn">Close</button>
+      </div>
+
+      <div class="subject-grid" id="tutor-subject-grid">
+        <div class="subject-box" data-sub="science">
+          <div class="subject-box-name">Science</div>
+          <div class="subject-box-count" id="count-science">Tap to load</div>
+        </div>
+        <div class="subject-box" data-sub="geography">
+          <div class="subject-box-name">Geography</div>
+          <div class="subject-box-count" id="count-geography">Tap to load</div>
+        </div>
+        <div class="subject-box" data-sub="health">
+          <div class="subject-box-name">Health & PE</div>
+          <div class="subject-box-count" id="count-health">Tap to load</div>
+        </div>
+        <div class="subject-box" data-sub="civic">
+          <div class="subject-box-name">Civic Ed.</div>
+          <div class="subject-box-count" id="count-civic">Tap to load</div>
+        </div>
+      </div>
+
+      <div id="tutor-qnum-section" style="display:none;">
+        <div style="font-size:0.8rem; font-weight:700; color:var(--muted); margin-bottom:6px;" id="tutor-qnum-label">Select Question Number:</div>
+        <div class="q-num-grid" id="tutor-qnum-grid"></div>
+      </div>
+
+      <div id="tutor-detail-section" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Passcode Modal -->
+<div class="modal-backdrop" id="tutor-modal">
+  <div class="modal-box">
+    <h2>Tutor Access</h2>
+    <p>Enter 4-digit tutor code to inspect the question bank.</p>
+    <input type="password" inputmode="numeric" maxlength="4" class="pin-input" id="tutor-pin-input" placeholder="••••">
+    <div id="tutor-pin-error" style="color:var(--incorrect); font-size:0.8rem; font-weight:600; margin-bottom:10px; display:none;">Incorrect code. Try again.</div>
+    <div class="modal-actions">
+      <button type="button" class="btn-modal btn-cancel" id="cancel-pin-btn">Cancel</button>
+      <button type="button" class="btn-modal btn-unlock" id="unlock-pin-btn">Unlock</button>
+    </div>
   </div>
 </div>
 
@@ -257,6 +487,7 @@
   // Your Google Apps Script Web App Endpoint
   var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbRD74dpAEVZnL01OacoUmw8t0emDSp17ZGT_Q30b1GOTVX-RtZhc4IJS8jpLp03QhmQ/exec";
   var TARGET_PHONE = "94701543307";
+  var TUTOR_CODE = "3307";
 
   // Extracts subject from URL query string: ?s=science or ?subject=geography
   function getSubject() {
@@ -278,6 +509,9 @@
   var currentSubject = getSubject();
   var userAnswers = {};
   var currentQuestions = [];
+  var currentTitle = '';
+  var previousScreen = 'quiz';
+  var tutorCache = {};
 
   function loadDailyQuiz() {
     var quizContainer = document.getElementById('quiz-container');
@@ -290,11 +524,22 @@
       .then(function(data) {
         if (data.error) throw new Error(data.error);
 
+        currentTitle = data.title || (currentSubject.toUpperCase() + ' Practice');
         document.getElementById('subject-tag').innerText = currentSubject.toUpperCase();
-        document.getElementById('title-text').innerText = data.title || (currentSubject.toUpperCase() + ' Practice');
+        document.getElementById('title-text').innerText = currentTitle;
         
         currentQuestions = data.questions || [];
         userAnswers = {};
+
+        // Cache the already-fetched subject data from the live data source
+        tutorCache[currentSubject] = {
+          title: currentTitle,
+          questions: currentQuestions
+        };
+        var countBadge = document.getElementById('count-' + currentSubject);
+        if (countBadge && currentQuestions.length > 0) {
+          countBadge.textContent = currentQuestions.length + ' Questions';
+        }
 
         if (currentQuestions.length === 0) {
           quizContainer.innerHTML = '<div class="loading-msg">No questions uploaded for today yet! Check back soon.</div>';
@@ -414,6 +659,7 @@
 
     document.getElementById('screen-quiz').style.display = 'none';
     document.getElementById('screen-results').style.display = 'block';
+    previousScreen = 'results';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -449,10 +695,179 @@
     window.location.href = waUrl;
   }
 
+  /* ================= TUTOR MODE LOGIC (FETCHES FROM APPS_SCRIPT_URL) ================= */
+  function openTutorModal() {
+    var modal = document.getElementById('tutor-modal');
+    var pinInput = document.getElementById('tutor-pin-input');
+    var pinErr = document.getElementById('tutor-pin-error');
+    pinInput.value = '';
+    pinErr.style.display = 'none';
+    modal.style.display = 'flex';
+    setTimeout(function() { pinInput.focus(); }, 50);
+  }
+
+  function closeTutorModal() {
+    document.getElementById('tutor-modal').style.display = 'none';
+  }
+
+  function checkTutorPin() {
+    var val = document.getElementById('tutor-pin-input').value.trim();
+    if (val === TUTOR_CODE) {
+      closeTutorModal();
+      enterTutorMode();
+    } else {
+      document.getElementById('tutor-pin-error').style.display = 'block';
+      document.getElementById('tutor-pin-input').value = '';
+      document.getElementById('tutor-pin-input').focus();
+    }
+  }
+
+  function enterTutorMode() {
+    if (document.getElementById('screen-results').style.display === 'block') {
+      previousScreen = 'results';
+    } else {
+      previousScreen = 'quiz';
+    }
+    document.getElementById('screen-quiz').style.display = 'none';
+    document.getElementById('screen-results').style.display = 'none';
+    document.getElementById('screen-tutor').style.display = 'block';
+  }
+
+  function exitTutorMode() {
+    document.getElementById('screen-tutor').style.display = 'none';
+    if (previousScreen === 'results') {
+      document.getElementById('screen-results').style.display = 'block';
+    } else {
+      document.getElementById('screen-quiz').style.display = 'block';
+    }
+  }
+
+  function selectTutorSubject(sub) {
+    var boxes = document.querySelectorAll('.subject-box');
+    boxes.forEach(function(b) {
+      b.classList.toggle('active', b.getAttribute('data-sub') === sub);
+    });
+
+    var qnumSection = document.getElementById('tutor-qnum-section');
+    var qnumGrid = document.getElementById('tutor-qnum-grid');
+    var detailSection = document.getElementById('tutor-detail-section');
+
+    detailSection.style.display = 'none';
+    qnumSection.style.display = 'block';
+
+    if (tutorCache[sub]) {
+      renderTutorQuestionNumbers(sub, tutorCache[sub]);
+      return;
+    }
+
+    document.getElementById('tutor-qnum-label').textContent = '⏳ Fetching ' + sub.toUpperCase() + ' from data source...';
+    qnumGrid.innerHTML = '';
+
+    var fetchUrl = APPS_SCRIPT_URL + '?s=' + encodeURIComponent(sub) + '&all=true';
+    fetch(fetchUrl)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.error) throw new Error(data.error);
+        var payload = {
+          title: data.title || sub.toUpperCase(),
+          questions: data.questions || []
+        };
+        tutorCache[sub] = payload;
+        var countBadge = document.getElementById('count-' + sub);
+        if (countBadge) {
+          countBadge.textContent = payload.questions.length + ' Questions';
+        }
+        renderTutorQuestionNumbers(sub, payload);
+      })
+      .catch(function(err) {
+        document.getElementById('tutor-qnum-label').textContent = '⚠️ Error loading ' + sub.toUpperCase() + ': ' + err.message;
+      });
+  }
+
+  function renderTutorQuestionNumbers(sub, payload) {
+    var list = payload.questions || [];
+    var qnumGrid = document.getElementById('tutor-qnum-grid');
+    document.getElementById('tutor-qnum-label').textContent = sub.toUpperCase() + ' — Select Question Number (1–' + list.length + '):';
+    qnumGrid.innerHTML = '';
+
+    if (list.length === 0) {
+      document.getElementById('tutor-qnum-label').textContent = 'No questions found in data source for ' + sub.toUpperCase() + '.';
+      return;
+    }
+
+    list.forEach(function(item, index) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'q-num-btn';
+      btn.textContent = index + 1;
+      btn.onclick = function() {
+        var allNums = qnumGrid.querySelectorAll('.q-num-btn');
+        allNums.forEach(function(nb) { nb.classList.remove('active'); });
+        btn.classList.add('active');
+        showTutorQuestionDetail(sub, index, item, payload.title);
+      };
+      qnumGrid.appendChild(btn);
+    });
+  }
+
+  function showTutorQuestionDetail(sub, index, item, fallbackTitle) {
+    var detailSection = document.getElementById('tutor-detail-section');
+    detailSection.style.display = 'block';
+
+    var optsHtml = '';
+    if (item.options && item.options.length > 0) {
+      item.options.forEach(function(opt) {
+        var isAns = String(opt).trim().toLowerCase() === String(item.ans).trim().toLowerCase();
+        optsHtml += '<div class="tutor-opt-item' + (isAns ? ' is-ans' : '') + '">' +
+                    (isAns ? '✅ ' : '• ') + escapeHtml(opt) +
+                    '</div>';
+      });
+    }
+
+    var headerTitle = item.title || fallbackTitle || sub.toUpperCase();
+
+    detailSection.innerHTML =
+      '<div class="tutor-detail-card">' +
+        '<div style="font-size:0.72rem; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:4px;">' +
+          escapeHtml(headerTitle) + ' • Question #' + (index + 1) +
+        '</div>' +
+        '<div style="font-weight:700; font-size:0.95rem; margin-bottom:10px; line-height:1.4;">' +
+          escapeHtml(item.q) +
+        '</div>' +
+        '<div style="margin-bottom:10px;">' + optsHtml + '</div>' +
+        '<div style="font-size:0.86rem; margin-bottom:6px;">Correct Answer: <b style="color:var(--correct);">' + escapeHtml(item.ans) + '</b></div>' +
+        (item.sinhala ? '<div class="sinhala-review">💡 <b>Sinhala Review:</b> ' + escapeHtml(item.sinhala) + '</div>' : '') +
+      '</div>';
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     loadDailyQuiz();
     document.getElementById('submit-btn').addEventListener('click', submitAnswers);
     document.getElementById('whatsapp-btn-top').addEventListener('click', shareWhatsAppDirect);
+
+    // Tutor mode event listeners
+    document.getElementById('tutor-trigger-btn').addEventListener('click', openTutorModal);
+    document.getElementById('cancel-pin-btn').addEventListener('click', closeTutorModal);
+    document.getElementById('unlock-pin-btn').addEventListener('click', checkTutorPin);
+    document.getElementById('tutor-pin-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') checkTutorPin();
+    });
+    document.getElementById('exit-tutor-btn').addEventListener('click', exitTutorMode);
+
+    var subjectBoxes = document.querySelectorAll('.subject-box');
+    subjectBoxes.forEach(function(box) {
+      box.addEventListener('click', function() {
+        selectTutorSubject(box.getAttribute('data-sub'));
+      });
+    });
   });
 </script>
 </body>
